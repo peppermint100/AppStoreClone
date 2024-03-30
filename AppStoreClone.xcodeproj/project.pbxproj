@@ -19,6 +19,8 @@
 		BAA487DE2BB7A64C00AD7AEC /* TodayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487DD2BB7A64C00AD7AEC /* TodayCoordinator.swift */; };
 		BAA487E02BB7A6AE00AD7AEC /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487DF2BB7A6AE00AD7AEC /* TodayViewModel.swift */; };
 		BAA487E52BB7A75200AD7AEC /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487E42BB7A75200AD7AEC /* Symbols.swift */; };
+		BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */; };
+		BAA487ED2BB7AE5C00AD7AEC /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		BAA487DD2BB7A64C00AD7AEC /* TodayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCoordinator.swift; sourceTree = "<group>"; };
 		BAA487DF2BB7A6AE00AD7AEC /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		BAA487E42BB7A75200AD7AEC /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
+		BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayNavigationTitleView.swift; sourceTree = "<group>"; };
+		BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		D3F7048E999FFF68394C3D2D /* Pods-AppStoreClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreClone.release.xcconfig"; path = "Target Support Files/Pods-AppStoreClone/Pods-AppStoreClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,9 +116,10 @@
 		BAA487D52BB7A30100AD7AEC /* Today */ = {
 			isa = PBXGroup;
 			children = (
-				BAA487DB2BB7A63200AD7AEC /* TodayViewController.swift */,
+				BAA487E82BB7AAF600AD7AEC /* Model */,
+				BAA487E72BB7AAF100AD7AEC /* ViewModel */,
+				BAA487E62BB7AAED00AD7AEC /* View */,
 				BAA487DD2BB7A64C00AD7AEC /* TodayCoordinator.swift */,
-				BAA487DF2BB7A6AE00AD7AEC /* TodayViewModel.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 		BAA487D82BB7A31500AD7AEC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BAA487EB2BB7AE5100AD7AEC /* Extension */,
 				BAA487D62BB7A30F00AD7AEC /* AppCoordinator.swift */,
 				BAA487D92BB7A31B00AD7AEC /* Coordinator.swift */,
 			);
@@ -136,6 +142,38 @@
 				BAA487E42BB7A75200AD7AEC /* Symbols.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		BAA487E62BB7AAED00AD7AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487DB2BB7A63200AD7AEC /* TodayViewController.swift */,
+				BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAA487E72BB7AAF100AD7AEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487DF2BB7A6AE00AD7AEC /* TodayViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BAA487E82BB7AAF600AD7AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BAA487EB2BB7AE5100AD7AEC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +297,10 @@
 				BAA487DC2BB7A63200AD7AEC /* TodayViewController.swift in Sources */,
 				BAA487E02BB7A6AE00AD7AEC /* TodayViewModel.swift in Sources */,
 				BAA487DA2BB7A31B00AD7AEC /* Coordinator.swift in Sources */,
+				BAA487ED2BB7AE5C00AD7AEC /* Date+String.swift in Sources */,
 				BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */,
 				BAA487C32BB79BE800AD7AEC /* SceneDelegate.swift in Sources */,
+				BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

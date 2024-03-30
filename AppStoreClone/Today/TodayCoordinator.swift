@@ -20,6 +20,7 @@ final class TodayCoordinator: Coordinator {
         let vc = TodayViewController()
         let vm = TodayViewModel()
         vm.coordinator = self
+        vc.vm = vm
         navigationController.viewControllers = [vc]
     }
 }
