@@ -13,6 +13,8 @@ final class TodayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let itunesService = ItunesServiceImpl()
+        itunesService.getSoftwares()
         setupUI()
         bind()
     }

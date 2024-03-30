@@ -21,6 +21,10 @@
 		BAA487E52BB7A75200AD7AEC /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487E42BB7A75200AD7AEC /* Symbols.swift */; };
 		BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */; };
 		BAA487ED2BB7AE5C00AD7AEC /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */; };
+		BAA487F02BB7B53A00AD7AEC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487EF2BB7B53A00AD7AEC /* Endpoint.swift */; };
+		BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */; };
+		BAA487F42BB7B97100AD7AEC /* ItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F32BB7B97100AD7AEC /* ItunesService.swift */; };
+		BAA487F92BB7BACD00AD7AEC /* ItunesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,10 @@
 		BAA487E42BB7A75200AD7AEC /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
 		BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayNavigationTitleView.swift; sourceTree = "<group>"; };
 		BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
+		BAA487EF2BB7B53A00AD7AEC /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		BAA487F32BB7B97100AD7AEC /* ItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesService.swift; sourceTree = "<group>"; };
+		BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesResponse.swift; sourceTree = "<group>"; };
 		D3F7048E999FFF68394C3D2D /* Pods-AppStoreClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreClone.release.xcconfig"; path = "Target Support Files/Pods-AppStoreClone/Pods-AppStoreClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +102,8 @@
 		BAA487BF2BB79BE800AD7AEC /* AppStoreClone */ = {
 			isa = PBXGroup;
 			children = (
+				BAA487F52BB7BA4E00AD7AEC /* Itunes */,
+				BAA487EE2BB7B50C00AD7AEC /* Network */,
 				BAA487E32BB7A74700AD7AEC /* Resource */,
 				BAA487D82BB7A31500AD7AEC /* Base */,
 				BAA487D52BB7A30100AD7AEC /* Today */,
@@ -127,9 +137,8 @@
 		BAA487D82BB7A31500AD7AEC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				BAA487F62BB7BA6000AD7AEC /* Coordinator */,
 				BAA487EB2BB7AE5100AD7AEC /* Extension */,
-				BAA487D62BB7A30F00AD7AEC /* AppCoordinator.swift */,
-				BAA487D92BB7A31B00AD7AEC /* Coordinator.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -174,6 +183,33 @@
 				BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		BAA487EE2BB7B50C00AD7AEC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487EF2BB7B53A00AD7AEC /* Endpoint.swift */,
+				BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BAA487F52BB7BA4E00AD7AEC /* Itunes */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487F32BB7B97100AD7AEC /* ItunesService.swift */,
+				BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */,
+			);
+			path = Itunes;
+			sourceTree = "<group>";
+		};
+		BAA487F62BB7BA6000AD7AEC /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487D62BB7A30F00AD7AEC /* AppCoordinator.swift */,
+				BAA487D92BB7A31B00AD7AEC /* Coordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,15 +327,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA487E52BB7A75200AD7AEC /* Symbols.swift in Sources */,
+				BAA487F92BB7BACD00AD7AEC /* ItunesResponse.swift in Sources */,
 				BAA487D72BB7A30F00AD7AEC /* AppCoordinator.swift in Sources */,
 				BAA487DE2BB7A64C00AD7AEC /* TodayCoordinator.swift in Sources */,
 				BAA487C52BB79BE800AD7AEC /* ViewController.swift in Sources */,
 				BAA487DC2BB7A63200AD7AEC /* TodayViewController.swift in Sources */,
 				BAA487E02BB7A6AE00AD7AEC /* TodayViewModel.swift in Sources */,
 				BAA487DA2BB7A31B00AD7AEC /* Coordinator.swift in Sources */,
+				BAA487F42BB7B97100AD7AEC /* ItunesService.swift in Sources */,
 				BAA487ED2BB7AE5C00AD7AEC /* Date+String.swift in Sources */,
+				BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */,
 				BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */,
 				BAA487C32BB79BE800AD7AEC /* SceneDelegate.swift in Sources */,
+				BAA487F02BB7B53A00AD7AEC /* Endpoint.swift in Sources */,
 				BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
