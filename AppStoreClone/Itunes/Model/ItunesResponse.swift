@@ -14,7 +14,7 @@ struct ItunesResponse: Codable {
 }
 
 // MARK: - Result
-struct ItunesApp: Codable {
+struct ItunesApp: Codable, Hashable {
     let artistViewURL: String
     let artworkUrl60, artworkUrl512, artworkUrl100: String
     let screenshotUrls: [String]

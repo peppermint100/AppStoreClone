@@ -10,7 +10,6 @@
 		34A52E000342F0916FBC3FAF /* Pods_AppStoreClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A114DBBB0E67F6B07E13BFF /* Pods_AppStoreClone.framework */; };
 		BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487C02BB79BE800AD7AEC /* AppDelegate.swift */; };
 		BAA487C32BB79BE800AD7AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487C22BB79BE800AD7AEC /* SceneDelegate.swift */; };
-		BAA487C52BB79BE800AD7AEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487C42BB79BE800AD7AEC /* ViewController.swift */; };
 		BAA487CA2BB79BEA00AD7AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA487C92BB79BEA00AD7AEC /* Assets.xcassets */; };
 		BAA487CD2BB79BEA00AD7AEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA487CB2BB79BEA00AD7AEC /* LaunchScreen.storyboard */; };
 		BAA487D72BB7A30F00AD7AEC /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487D62BB7A30F00AD7AEC /* AppCoordinator.swift */; };
@@ -25,6 +24,14 @@
 		BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */; };
 		BAA487F42BB7B97100AD7AEC /* ItunesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F32BB7B97100AD7AEC /* ItunesService.swift */; };
 		BAA487F92BB7BACD00AD7AEC /* ItunesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */; };
+		BAA487FB2BB7C60300AD7AEC /* TodayCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487FA2BB7C60300AD7AEC /* TodayCollectionViewSection.swift */; };
+		BAA487FD2BB7C79300AD7AEC /* TodayBigCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487FC2BB7C79300AD7AEC /* TodayBigCollectionViewCell.swift */; };
+		BAA488022BB7CF2A00AD7AEC /* apps.json in Resources */ = {isa = PBXBuildFile; fileRef = BAA488012BB7CF2A00AD7AEC /* apps.json */; };
+		BAA488042BB804BD00AD7AEC /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA488032BB804BD00AD7AEC /* Fonts.swift */; };
+		BAA488082BB80B3500AD7AEC /* Image+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA488072BB80B3500AD7AEC /* Image+Color.swift */; };
+		BAA4880A2BB81BC200AD7AEC /* JsonMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA488092BB81BC200AD7AEC /* JsonMapper.swift */; };
+		BAA4880E2BB81F8F00AD7AEC /* ItunesAppItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA4880D2BB81F8F00AD7AEC /* ItunesAppItemView.swift */; };
+		BAA488162BB8F57000AD7AEC /* View+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA488152BB8F57000AD7AEC /* View+Layer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +40,6 @@
 		BAA487BD2BB79BE800AD7AEC /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA487C02BB79BE800AD7AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA487C22BB79BE800AD7AEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BAA487C42BB79BE800AD7AEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAA487C92BB79BEA00AD7AEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAA487CC2BB79BEA00AD7AEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAA487CE2BB79BEA00AD7AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +55,14 @@
 		BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		BAA487F32BB7B97100AD7AEC /* ItunesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesService.swift; sourceTree = "<group>"; };
 		BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesResponse.swift; sourceTree = "<group>"; };
+		BAA487FA2BB7C60300AD7AEC /* TodayCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCollectionViewSection.swift; sourceTree = "<group>"; };
+		BAA487FC2BB7C79300AD7AEC /* TodayBigCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBigCollectionViewCell.swift; sourceTree = "<group>"; };
+		BAA488012BB7CF2A00AD7AEC /* apps.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = apps.json; sourceTree = "<group>"; };
+		BAA488032BB804BD00AD7AEC /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BAA488072BB80B3500AD7AEC /* Image+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Color.swift"; sourceTree = "<group>"; };
+		BAA488092BB81BC200AD7AEC /* JsonMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonMapper.swift; sourceTree = "<group>"; };
+		BAA4880D2BB81F8F00AD7AEC /* ItunesAppItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAppItemView.swift; sourceTree = "<group>"; };
+		BAA488152BB8F57000AD7AEC /* View+Layer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Layer.swift"; sourceTree = "<group>"; };
 		D3F7048E999FFF68394C3D2D /* Pods-AppStoreClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreClone.release.xcconfig"; path = "Target Support Files/Pods-AppStoreClone/Pods-AppStoreClone.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +122,6 @@
 				BAA487D82BB7A31500AD7AEC /* Base */,
 				BAA487D52BB7A30100AD7AEC /* Today */,
 				BAA487D42BB7A19D00AD7AEC /* Application */,
-				BAA487C42BB79BE800AD7AEC /* ViewController.swift */,
 				BAA487CE2BB79BEA00AD7AEC /* Info.plist */,
 			);
 			path = AppStoreClone;
@@ -139,6 +152,7 @@
 			children = (
 				BAA487F62BB7BA6000AD7AEC /* Coordinator */,
 				BAA487EB2BB7AE5100AD7AEC /* Extension */,
+				BAA488092BB81BC200AD7AEC /* JsonMapper.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -149,6 +163,8 @@
 				BAA487C92BB79BEA00AD7AEC /* Assets.xcassets */,
 				BAA487CB2BB79BEA00AD7AEC /* LaunchScreen.storyboard */,
 				BAA487E42BB7A75200AD7AEC /* Symbols.swift */,
+				BAA488012BB7CF2A00AD7AEC /* apps.json */,
+				BAA488032BB804BD00AD7AEC /* Fonts.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -158,6 +174,7 @@
 			children = (
 				BAA487DB2BB7A63200AD7AEC /* TodayViewController.swift */,
 				BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */,
+				BAA487FC2BB7C79300AD7AEC /* TodayBigCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +190,7 @@
 		BAA487E82BB7AAF600AD7AEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BAA487FA2BB7C60300AD7AEC /* TodayCollectionViewSection.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */,
+				BAA488072BB80B3500AD7AEC /* Image+Color.swift */,
+				BAA488152BB8F57000AD7AEC /* View+Layer.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -197,8 +217,9 @@
 		BAA487F52BB7BA4E00AD7AEC /* Itunes */ = {
 			isa = PBXGroup;
 			children = (
+				BAA4880C2BB81F7000AD7AEC /* Model */,
+				BAA4880B2BB81F6100AD7AEC /* View */,
 				BAA487F32BB7B97100AD7AEC /* ItunesService.swift */,
-				BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */,
 			);
 			path = Itunes;
 			sourceTree = "<group>";
@@ -210,6 +231,22 @@
 				BAA487D92BB7A31B00AD7AEC /* Coordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BAA4880B2BB81F6100AD7AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAA4880D2BB81F8F00AD7AEC /* ItunesAppItemView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAA4880C2BB81F7000AD7AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BAA487F82BB7BACD00AD7AEC /* ItunesResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +310,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAA487CD2BB79BEA00AD7AEC /* LaunchScreen.storyboard in Resources */,
+				BAA488022BB7CF2A00AD7AEC /* apps.json in Resources */,
 				BAA487CA2BB79BEA00AD7AEC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,20 +364,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA487FB2BB7C60300AD7AEC /* TodayCollectionViewSection.swift in Sources */,
+				BAA4880A2BB81BC200AD7AEC /* JsonMapper.swift in Sources */,
 				BAA487E52BB7A75200AD7AEC /* Symbols.swift in Sources */,
 				BAA487F92BB7BACD00AD7AEC /* ItunesResponse.swift in Sources */,
 				BAA487D72BB7A30F00AD7AEC /* AppCoordinator.swift in Sources */,
 				BAA487DE2BB7A64C00AD7AEC /* TodayCoordinator.swift in Sources */,
-				BAA487C52BB79BE800AD7AEC /* ViewController.swift in Sources */,
 				BAA487DC2BB7A63200AD7AEC /* TodayViewController.swift in Sources */,
 				BAA487E02BB7A6AE00AD7AEC /* TodayViewModel.swift in Sources */,
 				BAA487DA2BB7A31B00AD7AEC /* Coordinator.swift in Sources */,
+				BAA4880E2BB81F8F00AD7AEC /* ItunesAppItemView.swift in Sources */,
 				BAA487F42BB7B97100AD7AEC /* ItunesService.swift in Sources */,
+				BAA487FD2BB7C79300AD7AEC /* TodayBigCollectionViewCell.swift in Sources */,
 				BAA487ED2BB7AE5C00AD7AEC /* Date+String.swift in Sources */,
+				BAA488162BB8F57000AD7AEC /* View+Layer.swift in Sources */,
 				BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */,
 				BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */,
 				BAA487C32BB79BE800AD7AEC /* SceneDelegate.swift in Sources */,
 				BAA487F02BB7B53A00AD7AEC /* Endpoint.swift in Sources */,
+				BAA488082BB80B3500AD7AEC /* Image+Color.swift in Sources */,
+				BAA488042BB804BD00AD7AEC /* Fonts.swift in Sources */,
 				BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
