@@ -37,14 +37,7 @@ class ItunesAppItemView: UIView {
         return label
     }()
 
-    private let openButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("열기", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
-        button.titleLabel?.font = Fonts.button
-        button.backgroundColor = .systemGray5
-        return button
-    }()
+    private let openButton = OpenAppButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

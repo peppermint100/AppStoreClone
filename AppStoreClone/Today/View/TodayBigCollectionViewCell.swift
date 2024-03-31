@@ -30,7 +30,7 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
     private let captionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = Fonts.caption
+        label.font = .preferredFont(forTextStyle: .caption1)
         return label
     }()
     

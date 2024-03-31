@@ -33,6 +33,7 @@ final class TodayViewController: UIViewController {
     
     func setupCollectionView() {
         collectionView.register(TodayBigCollectionViewCell.self, forCellWithReuseIdentifier: TodayBigCollectionViewCell.identifier)
+        collectionView.register(TodayBannerCollectionViewCell.self, forCellWithReuseIdentifier: TodayBannerCollectionViewCell.identifier)
         collectionView.collectionViewLayout = createLayout()
     }
     
@@ -59,6 +60,8 @@ private extension TodayViewController {
             switch section {
             case 0:
                 self?.createBigSection()
+            case 1:
+                self?.createBannerSection()
             default:
                 self?.createBigSection()
             }
@@ -76,6 +79,18 @@ private extension TodayViewController {
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
+    
+    func createBannerSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(170))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        return section
+    }
 }
 
 private extension TodayViewController {
@@ -88,6 +103,11 @@ private extension TodayViewController {
                         as? TodayBigCollectionViewCell else { return UICollectionViewCell()}
                 cell.configure(with: app)
                 return cell
+            case .banner(let app):
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayBannerCollectionViewCell.identifier, for: indexPath)
+                        as? TodayBannerCollectionViewCell else { return UICollectionViewCell()}
+                cell.configure(with: app)
+                return cell
             default:
                 return UICollectionViewCell()
             }
@@ -98,10 +118,13 @@ private extension TodayViewController {
     func setSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<TodaySection, TodayItem>()
         let apps = try! StaticJSONMapper.decode(file: "apps", type: ItunesResponse.self)
-        let items = apps.results.map { TodayItem.big($0) }.first!
+        let bigItems = apps.results.map { TodayItem.big($0) }.first!
+        let bannerItems = apps.results.map { TodayItem.banner($0) }.first!
         
         snapshot.appendSections([TodaySection(id: "big")])
-        snapshot.appendItems([items], toSection: TodaySection(id: "big"))
+        snapshot.appendSections([TodaySection(id: "banner")])
+        snapshot.appendItems([bigItems], toSection: TodaySection(id: "big"))
+        snapshot.appendItems([bannerItems], toSection: TodaySection(id: "banner"))
         dataSource?.apply(snapshot)
     }
 }
