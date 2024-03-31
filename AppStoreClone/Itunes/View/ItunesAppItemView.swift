@@ -85,5 +85,6 @@ class ItunesAppItemView: UIView {
         subtitleLabel.text = app.artistName
         let url = URL(string: app.artworkUrl100)
         appIconImageView.kf.setImage(with: url)
+        openButton.configure(trackId: app.trackID)
     }
 }

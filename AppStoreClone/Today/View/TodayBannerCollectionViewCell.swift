@@ -129,5 +129,6 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
                 return
             }
         }
+        openButton.configure(trackId: app.trackID)
     }
 }
