@@ -12,14 +12,14 @@ class TodayNavigationTitleView: UIView {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 34, weight: .bold)
+        label.font = Fonts.navigationTitle
         label.textColor = .label
         return label
     }()
     
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .bold)
+        label.font = Fonts.navigationSubtitle
         label.textColor = .secondaryLabel
         return label
     }()
