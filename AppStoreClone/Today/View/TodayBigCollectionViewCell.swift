@@ -40,6 +40,11 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         return iv
     }()
     
+    private let appItemContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     private let appItemView: ItunesAppItemView = {
         let view = ItunesAppItemView()
         return view
@@ -49,7 +54,9 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.addSubview(containerView)
         containerView.addArrangedSubview(bgImageView)
-        containerView.addArrangedSubview(appItemView)
+        containerView.addArrangedSubview(appItemContainer)
+        
+        appItemContainer.addSubview(appItemView)
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -59,12 +66,18 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
             make.height.equalToSuperview().multipliedBy(0.8)
         }
         
-        appItemView.snp.makeConstraints { make in
+        appItemContainer.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.2)
+        }
+        
+        appItemView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(15)
         }
         
         containerView.layer.cornerRadius = 20
         containerView.clipsToBounds = true
+        
         bgImageView.addSubview(titleLabel)
         bgImageView.addSubview(captionLabel)
         
@@ -89,8 +102,8 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
             switch result {
             case .success(let value):
                 guard let averageColor = value.image.averageColor else { return }
-                self?.bgImageView.labelGradient()
-                self?.appItemView.backgroundColor = averageColor.withAlphaComponent(0.5)
+                self?.bgImageView.labelGradient(.bottomLeft, .soft)
+                self?.appItemContainer.backgroundColor = averageColor.withAlphaComponent(0.5)
             case .failure(_):
                 return
             }

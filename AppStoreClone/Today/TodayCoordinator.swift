@@ -18,8 +18,7 @@ final class TodayCoordinator: Coordinator {
     
     func start() {
         let vc = TodayViewController()
-        let vm = TodayViewModel()
-        vm.coordinator = self
+        let vm = TodayViewModel(coordinator: self, service: ItunesServiceImpl())
         vc.vm = vm
         navigationController.viewControllers = [vc]
     }

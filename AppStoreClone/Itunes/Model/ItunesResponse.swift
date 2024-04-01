@@ -21,14 +21,16 @@ struct ItunesApp: Codable, Hashable {
     let isGameCenterEnabled: Bool
     let ipadScreenshotUrls: [String]
     let supportedDevices, features, advisories: [String]
-    let kind, formattedPrice, contentAdvisoryRating: String
+    let kind, contentAdvisoryRating: String
+    let formattedPrice: String?
     let userRatingCountForCurrentVersion: Int
     let trackContentRating: String
     let averageUserRatingForCurrentVersion, averageUserRating: Double
     let minimumOSVersion, trackCensoredName: String
     let languageCodesISO2A: [String]
     let fileSizeBytes: String
-    let sellerURL, trackViewURL: String
+    let sellerURL: String?
+    let trackViewURL: String
     let genreIDS: [String]
     let primaryGenreName: String
     let primaryGenreID, trackID: Int
@@ -36,7 +38,7 @@ struct ItunesApp: Codable, Hashable {
     let artistID: Int
     let artistName: String
     let genres: [String]
-    let price: Int
+    let price: Int?
     let description: String
     let releaseDate: Date
     let bundleID, sellerName: String

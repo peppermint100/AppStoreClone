@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 final class TodayViewController: UIViewController {
+    
+    let disposeBag = DisposeBag()
     
     var vm: TodayViewModel!
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
@@ -18,9 +21,9 @@ final class TodayViewController: UIViewController {
         setupUI()
         setupCollectionView()
         setDataSource()
-        setSnapshot()
         bind()
     }
+
     
     func setupUI() {
         view.backgroundColor = .systemBackground
@@ -40,9 +43,26 @@ final class TodayViewController: UIViewController {
     }
     
     func bind() {
-        let input = TodayViewModel.Input()
+        let input = TodayViewModel.Input(
+        )
         let output = vm.transform(input)
         setupNavigationBar(output)
+        
+        output.todaysApp.bind { [weak self] result in
+            let today = TodaySection.today
+            self?.applySnapshot(items: [TodayItem.big(result)], section: today)
+        }.disposed(by: disposeBag)
+        
+        output.deliveryApp.bind { [weak self] result in
+            let banner = TodaySection.adBanner
+            self?.applySnapshot(items: [TodayItem.banner(result)], section: banner)
+        }.disposed(by: disposeBag)
+        
+        output.gameApps.bind { [weak self] result in
+            let list = TodaySection.vertical("추천", "에디터도 플레이 중")
+            let items = result.map { TodayItem.list($0) }
+            self?.applySnapshot(items: items, section: list)
+        }.disposed(by: disposeBag)
     }
     
     func setupNavigationBar(_ output: TodayViewModel.Output) {
@@ -58,20 +78,20 @@ private extension TodayViewController {
         let config = UICollectionViewCompositionalLayoutConfiguration()
         config.interSectionSpacing = 30
         
-        let layout = UICollectionViewCompositionalLayout(sectionProvider: { [weak self] section, _ in
+        return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] sectionIdx, _ in
+            let section = self?.dataSource?.sectionIdentifier(for: sectionIdx)
+            
             switch section {
-            case 0:
-                self?.createBigSection()
-            case 1:
-                self?.createBannerSection()
-            case 2:
-                self?.createListSection()
+            case .today:
+                return self?.createBigSection()
+            case .adBanner:
+                return self?.createBannerSection()
+            case .vertical:
+                return self?.createListSection()
             default:
-                self?.createBigSection()
+                return self?.createBigSection()
             }
         }, configuration: config)
-        
-        return layout
     }
     
     func createBigSection() -> NSCollectionLayoutSection {
@@ -155,26 +175,20 @@ private extension TodayViewController {
             return header
         }
     }
-    
-    func setSnapshot() {
-        var snapshot = NSDiffableDataSourceSnapshot<TodaySection, TodayItem>()
-        let apps = try! StaticJSONMapper.decode(file: "apps", type: ItunesResponse.self)
-        let bigItems = apps.results.map { TodayItem.big($0) }.first!
-        let bannerItems = apps.results.map { TodayItem.banner($0) }.first!
-        let listItems = apps.results.map { TodayItem.list($0) }
+}
+
+private extension TodayViewController {
         
-        let today = TodaySection.today
-        snapshot.appendSections([today])
-        snapshot.appendItems([bigItems], toSection: today)
+    func applySnapshot(items: [TodayItem], section: TodaySection) {
+        guard let dataSource = dataSource else { return }
         
-        let adBanner = TodaySection.adBanner
-        snapshot.appendSections([adBanner])
-        snapshot.appendItems([bannerItems], toSection: adBanner)
+        var snapshot = dataSource.snapshot()
         
-        let vertical = TodaySection.vertical("추천", "에디터도 플레이 중")
-        snapshot.appendSections([vertical])
-        snapshot.appendItems(listItems, toSection: vertical)
+        if !snapshot.sectionIdentifiers.contains(section) {
+            snapshot.appendSections([section])
+        }
         
-        dataSource?.apply(snapshot)
+        snapshot.appendItems(items, toSection: section)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
 }

@@ -56,7 +56,7 @@ class ItunesAppItemView: UIView {
         openButton.clipsToBounds = true
         
         appIconImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(15)
+            make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
             make.height.equalToSuperview().multipliedBy(0.8)
             make.width.equalTo(snp.height).multipliedBy(0.8)
@@ -69,7 +69,7 @@ class ItunesAppItemView: UIView {
         }
         
         openButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-15)
+            make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
             make.width.equalTo(80)
             make.height.equalTo(40)
