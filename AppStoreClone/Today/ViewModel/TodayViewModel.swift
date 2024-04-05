@@ -45,6 +45,6 @@ final class TodayViewModel: Coordinating {
     
     func didTapBigCell(with app: ItunesApp) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
-        coordinator.toAppDetail(with: app)
+        coordinator.openAppDetailWithTransitionFromBigCell(with: app)
     }
 }

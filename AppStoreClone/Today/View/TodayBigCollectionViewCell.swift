@@ -28,7 +28,12 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let bgImageView: UIImageView = {
+    let bgContainer: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    private let bgImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         return iv
@@ -36,14 +41,23 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(bgImageView)
+        contentView.addSubview(bgContainer)
         
-        bgImageView.frame = CGRect(x: 0, y: 0, width: SizeConstant.bigCellImageWidth, height: SizeConstant.bigCellImageHeight)
-        bgImageView.layer.cornerRadius = 20
-        bgImageView.clipsToBounds = true
+        bgContainer.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(TodayViewController.SizeConstant.bigCellImageHeight)
+        }
         
-        bgImageView.addSubview(titleLabel)
-        bgImageView.addSubview(descLabel)
+        bgContainer.layer.cornerRadius = 20
+        bgContainer.clipsToBounds = true
+        
+        bgContainer.addSubview(bgImageView)
+        bgContainer.addSubview(titleLabel)
+        bgContainer.addSubview(descLabel)
+        
+        bgImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
@@ -65,12 +79,21 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         bgImageView.kf.setImage(with: url) { [weak self] result in
             switch result {
             case .success(let value):
-                guard let averageColor = value.image.averageColor else { return }
                 self?.bgImageView.labelGradient(.bottomLeft, .soft)
             case .failure(_):
                 return
             }
         }
+    }
+    
+    func hideViews() {
+        titleLabel.isHidden = true
+        descLabel.isHidden = true
+    }
+    
+    func showViews() {
+        titleLabel.isHidden = false
+        descLabel.isHidden = false
     }
     
     required init?(coder: NSCoder) {

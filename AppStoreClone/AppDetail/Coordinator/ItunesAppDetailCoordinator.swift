@@ -28,4 +28,12 @@ final class ItunesAppDetailCoordinator: Coordinator {
         vc.vm = vm
         navigationController.present(vc, animated: true)
     }
+    
+    func startWithTransition() {
+        let vc = ItunesAppDetailViewController()
+        let vm = ItunesAppDetailViewModel(coordinator: self, app: app)
+        vc.vm = vm
+        vc.setTransition()
+        navigationController.present(vc, animated: true)
+    }
 }

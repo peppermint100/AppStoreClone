@@ -115,7 +115,7 @@ private extension TodayViewController {
     func createBigSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: SizeConstant.layoutMargin, bottom: 0, trailing: SizeConstant.layoutMargin)
         
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(SizeConstant.bigCellImageHeight))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
@@ -196,7 +196,6 @@ private extension TodayViewController {
 }
 
 private extension TodayViewController {
-        
     func applySnapshot(items: [TodayItem], section: TodaySection) {
         guard let dataSource = dataSource else { return }
         
@@ -208,5 +207,14 @@ private extension TodayViewController {
         
         snapshot.appendItems(items, toSection: section)
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+}
+
+extension TodayViewController {
+    
+    enum SizeConstant {
+        static let layoutMargin: CGFloat = 20
+        static let bigCellImageHeight: CGFloat = 400
+        static let bigCellImageWidth: CGFloat = GlobalSizeConstant.screenWidth - layoutMargin * 2
     }
 }

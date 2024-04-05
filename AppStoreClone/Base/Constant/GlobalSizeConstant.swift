@@ -7,9 +7,7 @@
 
 import UIKit
 
-enum SizeConstant {
-    static let bigCellImageWidth: CGFloat = screenWidth - 40
-    static let bigCellImageHeight: CGFloat = 480
+enum GlobalSizeConstant {
     
     static let appDetailHeadImageHeight:CGFloat = 300
     static let appDetailHeadImageWidth = screenWidth

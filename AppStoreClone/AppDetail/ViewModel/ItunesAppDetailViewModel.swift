@@ -71,7 +71,7 @@ final class ItunesAppDetailViewModel: Coordinating {
 
 extension ItunesAppDetailViewModel {
     enum SizeConstant {
-        static let headImageHeight: CGFloat = 220
+        static let headImageHeight: CGFloat = 400
         static let launchable: CGFloat = 150
         static let description: CGFloat = 120
         static let appSummary: CGFloat = 120

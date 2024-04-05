@@ -18,7 +18,7 @@ class ItunesAppDetailViewController: UIViewController {
     private let disposeBag = DisposeBag()
     var cellHeights = [CGFloat]()
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tv = UITableView()
         tv.register(AppDetailHeadImageTableViewCell.self, forCellReuseIdentifier: AppDetailHeadImageTableViewCell.identifier)
         tv.register(AppDetailLaunchableTableViewCell.self, forCellReuseIdentifier: AppDetailLaunchableTableViewCell.identifier)
@@ -43,6 +43,12 @@ class ItunesAppDetailViewController: UIViewController {
         setupTableView()
         setupCloseButton()
         bind()
+    }
+    
+    func showViews() {
+        tableView.snp.remakeConstraints({ make in
+            make.edges.equalToSuperview()
+        })
     }
 }
 
@@ -103,9 +109,12 @@ extension ItunesAppDetailViewController {
 extension ItunesAppDetailViewController {
     private func setupTableView() {
         view.addSubview(tableView)
+        tableView.contentInsetAdjustmentBehavior = .never
+        
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
     
@@ -121,6 +130,10 @@ extension ItunesAppDetailViewController {
         closeButton.clipsToBounds = true
         
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
+    }
+    
+    func hideViews() {
+        closeButton.isHidden = true
     }
     
     @objc private func close() {
@@ -156,10 +169,10 @@ extension ItunesAppDetailViewController: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CardTransitionManager(animationType: .present)
+        return TodayBigCellTransition(animationType: .present)
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return CardTransitionManager(animationType: .dismiss)
+        return TodayBigCellTransition(animationType: .dismiss)
     }
 }
