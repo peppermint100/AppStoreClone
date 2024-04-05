@@ -44,4 +44,10 @@ extension UIView {
         self.layer.shadowRadius = 12
         self.layer.shadowColor = UIColor.gray.cgColor
     }
+    
+//    func roundCorners(cornerRadius: CGFloat, maskedCorners: CACornerMask) {
+//        clipsToBounds = true
+//        layer.cornerRadius = cornerRadius
+//        layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
+//    }
 }

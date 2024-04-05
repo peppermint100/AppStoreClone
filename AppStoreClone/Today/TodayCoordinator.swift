@@ -22,4 +22,11 @@ final class TodayCoordinator: Coordinator {
         vc.vm = vm
         navigationController.viewControllers = [vc]
     }
+    
+    func toAppDetail(with app: ItunesApp, transition: Bool? = false) {
+        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app, transition: true)
+        coordinator.parent = self
+        children.append(coordinator)
+        coordinator.start()
+    }
 }

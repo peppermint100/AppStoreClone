@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ItunesAppItemView: UIView {
+class ItunesAppItemListView: UIView {
     
     private let appIconImageView: UIImageView = {
         let iv = UIImageView()

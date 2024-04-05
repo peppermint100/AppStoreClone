@@ -17,7 +17,7 @@ class OpenAppButton: UIButton {
         setTitleColor(.systemBlue, for: .normal)
         titleLabel?.font = .preferredFont(forTextStyle: .headline)
         backgroundColor = .systemGray5
-        layer.cornerRadius = 20
+        layer.cornerRadius = 15
         clipsToBounds = true
     }
     
