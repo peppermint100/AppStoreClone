@@ -12,7 +12,7 @@ class TodayListCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TodayListCollectionViewCell"
     
-    private let itemView = ItunesAppItemView()
+    private let itemView = ItunesAppItemListView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

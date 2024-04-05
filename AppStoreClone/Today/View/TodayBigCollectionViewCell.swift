@@ -12,13 +12,6 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TodayBigCollectionViewCell"
     
-    private let containerView: UIStackView = {
-        let sv = UIStackView()
-        sv.axis = .vertical
-        sv.distribution = .fillEqually
-        return sv
-    }()
-    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -27,75 +20,46 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let captionLabel: UILabel = {
+    private let descLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
-        label.font = .preferredFont(forTextStyle: .caption1)
+        label.textColor = .lightGray
+        label.font = Fonts.subtitle
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
-    private let bgImageView: UIImageView = {
+    let bgImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         return iv
     }()
     
-    private let appItemContainer: UIView = {
-        let view = UIView()
-        return view
-    }()
-    
-    private let appItemView: ItunesAppItemView = {
-        let view = ItunesAppItemView()
-        return view
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(containerView)
-        containerView.addArrangedSubview(bgImageView)
-        containerView.addArrangedSubview(appItemContainer)
+        contentView.addSubview(bgImageView)
         
-        appItemContainer.addSubview(appItemView)
-        
-        containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        bgImageView.snp.makeConstraints { make in
-            make.height.equalToSuperview().multipliedBy(0.8)
-        }
-        
-        appItemContainer.snp.makeConstraints { make in
-            make.height.equalToSuperview().multipliedBy(0.2)
-        }
-        
-        appItemView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.leading.trailing.equalToSuperview().inset(15)
-        }
-        
-        containerView.layer.cornerRadius = 20
-        containerView.clipsToBounds = true
+        bgImageView.frame = CGRect(x: 0, y: 0, width: SizeConstant.bigCellImageWidth, height: SizeConstant.bigCellImageHeight)
+        bgImageView.layer.cornerRadius = 20
+        bgImageView.clipsToBounds = true
         
         bgImageView.addSubview(titleLabel)
-        bgImageView.addSubview(captionLabel)
+        bgImageView.addSubview(descLabel)
         
         titleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(15)
-            make.bottom.equalTo(captionLabel.snp.top)
-            make.width.equalToSuperview().multipliedBy(0.8)
+            make.leading.equalToSuperview().offset(20)
+            make.bottom.equalTo(descLabel.snp.top)
         }
         
-        captionLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(15)
+        descLabel.snp.makeConstraints { make in
+            make.leading.equalToSuperview().offset(20)
+            make.width.equalToSuperview().multipliedBy(0.6)
             make.bottom.equalToSuperview().offset(-20)
         }
     }
     
     func configure(with app: ItunesApp) {
         titleLabel.text = app.trackName
-        captionLabel.text = app.artistName
+        descLabel.text = app.description
         let url = URL(string: app.artworkUrl512)
         bgImageView.kf.indicatorType = .activity
         bgImageView.kf.setImage(with: url) { [weak self] result in
@@ -103,16 +67,51 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
             case .success(let value):
                 guard let averageColor = value.image.averageColor else { return }
                 self?.bgImageView.labelGradient(.bottomLeft, .soft)
-                self?.appItemContainer.backgroundColor = averageColor.withAlphaComponent(0.5)
             case .failure(_):
                 return
             }
         }
-        
-        appItemView.configure(with: app)
     }
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+}
+
+extension TodayBigCollectionViewCell {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        bounceAnimate(isTouched: true)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        bounceAnimate(isTouched: false)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        bounceAnimate(isTouched: false)
+    }
+    
+    private func bounceAnimate(isTouched: Bool) {
+        if isTouched {
+            TodayBigCollectionViewCell.animate(withDuration: 0.25,
+                           delay: 0,
+                           usingSpringWithDamping: 1,
+                           initialSpringVelocity: 1,
+                           options: [.allowUserInteraction], animations: {
+                            self.transform = .init(scaleX: 0.97, y: 0.97)
+                            self.layoutIfNeeded()
+                           }, completion: nil)
+        } else {
+            TodayBigCollectionViewCell.animate(withDuration: 0.25,
+                           delay: 0,
+                           usingSpringWithDamping: 1,
+                           initialSpringVelocity: 0,
+                           options: .allowUserInteraction, animations: {
+                            self.transform = .identity
+                           }, completion: nil)
+        }
     }
 }

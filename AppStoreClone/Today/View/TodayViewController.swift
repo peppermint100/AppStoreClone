@@ -12,6 +12,8 @@ final class TodayViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    var selectedCell: TodayBigCollectionViewCell?
+    
     var vm: TodayViewModel!
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     private var dataSource: UICollectionViewDiffableDataSource<TodaySection, TodayItem>?
@@ -22,8 +24,8 @@ final class TodayViewController: UIViewController {
         setupCollectionView()
         setDataSource()
         bind()
+        bindView()
     }
-
     
     func setupUI() {
         view.backgroundColor = .systemBackground
@@ -35,6 +37,7 @@ final class TodayViewController: UIViewController {
     }
     
     func setupCollectionView() {
+        collectionView.delaysContentTouches = false /// 셀 터치시 바운스 애니메이션 감도를 강하게 설정하기 위함
         collectionView.register(TodayBigCollectionViewCell.self, forCellWithReuseIdentifier: TodayBigCollectionViewCell.identifier)
         collectionView.register(TodayBannerCollectionViewCell.self, forCellWithReuseIdentifier: TodayBannerCollectionViewCell.identifier)
         collectionView.register(TodayListCollectionViewCell.self, forCellWithReuseIdentifier: TodayListCollectionViewCell.identifier)
@@ -43,9 +46,9 @@ final class TodayViewController: UIViewController {
     }
     
     func bind() {
-        let input = TodayViewModel.Input(
-        )
+        let input = TodayViewModel.Input()
         let output = vm.transform(input)
+        
         setupNavigationBar(output)
         
         output.todaysApp.bind { [weak self] result in
@@ -62,6 +65,21 @@ final class TodayViewController: UIViewController {
             let list = TodaySection.vertical("추천", "에디터도 플레이 중")
             let items = result.map { TodayItem.list($0) }
             self?.applySnapshot(items: items, section: list)
+        }.disposed(by: disposeBag)
+    }
+    
+    func bindView() {
+        collectionView.rx.itemSelected.bind { [weak self] indexPath in
+            let item = self?.dataSource?.itemIdentifier(for: indexPath)
+            switch item {
+            case .big(let app):
+                let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBigCollectionViewCell
+                self?.selectedCell = cell
+                self?.vm.didTapBigCell(with: app)
+                return
+            default:
+                return
+            }
         }.disposed(by: disposeBag)
     }
     
@@ -99,7 +117,7 @@ private extension TodayViewController {
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
         
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(500))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(SizeConstant.bigCellImageHeight))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         
         let section = NSCollectionLayoutSection(group: group)
