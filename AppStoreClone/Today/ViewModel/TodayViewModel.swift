@@ -23,7 +23,6 @@ final class TodayViewModel: Coordinating {
     
     struct Output {
         let navigationTitle: String
-        let todayMonthAndDate: String
         let todaysApp: Observable<ItunesApp>
         let deliveryApp: Observable<ItunesApp>
         let gameApps: Observable<[ItunesApp]>
@@ -36,15 +35,19 @@ final class TodayViewModel: Coordinating {
         
         return TodayViewModel.Output(
             navigationTitle: "투데이",
-            todayMonthAndDate: Date().monthAndDate(),
             todaysApp: todaysApp,
             deliveryApp: deliveryApp,
             gameApps: gameApps
         )
     }
     
-    func didTapBigCell(with app: ItunesApp) {
+    func didTapCell(with app: ItunesApp) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
-        coordinator.openAppDetailWithTransitionFromBigCell(with: app)
+        coordinator.openAppDetail(with: app)
+    }
+    
+    func transitionToDetail(with app: ItunesApp, from item: TodayItem) {
+        guard let coordinator = coordinator as? TodayCoordinator else { return }
+        coordinator.openAppDetailWithTransition(with: app, from: item)
     }
 }

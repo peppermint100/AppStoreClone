@@ -14,26 +14,25 @@ final class ItunesAppDetailCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     let app: ItunesApp
-    var transition: Bool = false
     
-    init(navigationController: UINavigationController, app: ItunesApp, transition: Bool = false) {
+    init(navigationController: UINavigationController, app: ItunesApp) {
         self.navigationController = navigationController
         self.app = app
-        self.transition = transition
     }
     
     func start() {
         let vc = ItunesAppDetailViewController()
         let vm = ItunesAppDetailViewModel(coordinator: self, app: app)
+        vc.hideCloseButton()
         vc.vm = vm
-        navigationController.present(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
     }
     
-    func startWithTransition() {
+    func startWithTransition(item: TodayItem) {
         let vc = ItunesAppDetailViewController()
         let vm = ItunesAppDetailViewModel(coordinator: self, app: app)
         vc.vm = vm
-        vc.setTransition()
+        vc.setTransition(item: item)
         navigationController.present(vc, animated: true)
     }
 }

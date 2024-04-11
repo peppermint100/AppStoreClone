@@ -12,9 +12,11 @@ final class TodayViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    var selectedCell: TodayBigCollectionViewCell?
+    var selectedBigCell: TodayBigCollectionViewCell?
+    var selectedBannerCell: TodayBannerCollectionViewCell?
     
     var vm: TodayViewModel!
+    
     private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
     private var dataSource: UICollectionViewDiffableDataSource<TodaySection, TodayItem>?
     
@@ -30,6 +32,7 @@ final class TodayViewController: UIViewController {
     func setupUI() {
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
+        
         collectionView.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
@@ -49,7 +52,7 @@ final class TodayViewController: UIViewController {
         let input = TodayViewModel.Input()
         let output = vm.transform(input)
         
-        setupNavigationBar(output)
+        setupNavigation(output)
         
         output.todaysApp.bind { [weak self] result in
             let today = TodaySection.today
@@ -74,8 +77,16 @@ final class TodayViewController: UIViewController {
             switch item {
             case .big(let app):
                 let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBigCollectionViewCell
-                self?.selectedCell = cell
-                self?.vm.didTapBigCell(with: app)
+                self?.selectedBigCell = cell
+                self?.vm.transitionToDetail(with: app, from: .big(app))
+                return
+            case .banner(let app):
+                let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBannerCollectionViewCell
+                self?.selectedBannerCell = cell
+                self?.vm.transitionToDetail(with: app, from: .banner(app))
+                return
+            case .list(let app):
+                self?.vm.didTapCell(with: app)
                 return
             default:
                 return
@@ -83,11 +94,8 @@ final class TodayViewController: UIViewController {
         }.disposed(by: disposeBag)
     }
     
-    func setupNavigationBar(_ output: TodayViewModel.Output) {
-        let titleView = TodayNavigationTitleView()
-        titleView.backgroundColor = .red
-        titleView.configure(title: output.navigationTitle, subtitle: output.todayMonthAndDate)
-        navigationItem.titleView = titleView
+    private func setupNavigation(_ output: TodayViewModel.Output) {
+        navigationItem.title = output.navigationTitle
     }
 }
 
@@ -216,5 +224,6 @@ extension TodayViewController {
         static let layoutMargin: CGFloat = 20
         static let bigCellImageHeight: CGFloat = 400
         static let bigCellImageWidth: CGFloat = GlobalSizeConstant.screenWidth - layoutMargin * 2
+        static let bannerCellIconWidth: CGFloat = 85
     }
 }

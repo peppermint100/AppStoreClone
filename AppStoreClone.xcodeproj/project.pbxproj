@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		34A52E000342F0916FBC3FAF /* Pods_AppStoreClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A114DBBB0E67F6B07E13BFF /* Pods_AppStoreClone.framework */; };
-		BA0DED702BBA50C000059C30 /* TodayBigCellTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DED6F2BBA50C000059C30 /* TodayBigCellTransition.swift */; };
+		BA0DED702BBA50C000059C30 /* ItunesDetailViewControllerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0DED6F2BBA50C000059C30 /* ItunesDetailViewControllerTransition.swift */; };
 		BA2442802BBBF17700413B95 /* CardPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA24427F2BBBF17700413B95 /* CardPresentationController.swift */; };
 		BA2442832BBC161400413B95 /* GlobalSizeConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2442822BBC161400413B95 /* GlobalSizeConstant.swift */; };
 		BA2442862BBD1C9400413B95 /* ItunesAppDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2442852BBD1C9400413B95 /* ItunesAppDetailCoordinator.swift */; };
@@ -34,7 +34,6 @@
 		BAA487DE2BB7A64C00AD7AEC /* TodayCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487DD2BB7A64C00AD7AEC /* TodayCoordinator.swift */; };
 		BAA487E02BB7A6AE00AD7AEC /* TodayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487DF2BB7A6AE00AD7AEC /* TodayViewModel.swift */; };
 		BAA487E52BB7A75200AD7AEC /* Symbols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487E42BB7A75200AD7AEC /* Symbols.swift */; };
-		BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */; };
 		BAA487ED2BB7AE5C00AD7AEC /* Date+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */; };
 		BAA487F02BB7B53A00AD7AEC /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487EF2BB7B53A00AD7AEC /* Endpoint.swift */; };
 		BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */; };
@@ -69,7 +68,7 @@
 /* Begin PBXFileReference section */
 		259B49062656C15D8BAA3E82 /* Pods-AppStoreClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppStoreClone.debug.xcconfig"; path = "Target Support Files/Pods-AppStoreClone/Pods-AppStoreClone.debug.xcconfig"; sourceTree = "<group>"; };
 		5A114DBBB0E67F6B07E13BFF /* Pods_AppStoreClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppStoreClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA0DED6F2BBA50C000059C30 /* TodayBigCellTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayBigCellTransition.swift; sourceTree = "<group>"; };
+		BA0DED6F2BBA50C000059C30 /* ItunesDetailViewControllerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesDetailViewControllerTransition.swift; sourceTree = "<group>"; };
 		BA24427F2BBBF17700413B95 /* CardPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPresentationController.swift; sourceTree = "<group>"; };
 		BA2442822BBC161400413B95 /* GlobalSizeConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSizeConstant.swift; sourceTree = "<group>"; };
 		BA2442852BBD1C9400413B95 /* ItunesAppDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAppDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		BAA487DD2BB7A64C00AD7AEC /* TodayCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCoordinator.swift; sourceTree = "<group>"; };
 		BAA487DF2BB7A6AE00AD7AEC /* TodayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewModel.swift; sourceTree = "<group>"; };
 		BAA487E42BB7A75200AD7AEC /* Symbols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbols.swift; sourceTree = "<group>"; };
-		BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayNavigationTitleView.swift; sourceTree = "<group>"; };
 		BAA487EC2BB7AE5C00AD7AEC /* Date+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+String.swift"; sourceTree = "<group>"; };
 		BAA487EF2BB7B53A00AD7AEC /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		BAA487F12BB7B6CC00AD7AEC /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
@@ -159,14 +157,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		BA0DED6E2BBA50B400059C30 /* CardTransition */ = {
+		BA0DED6E2BBA50B400059C30 /* Transition */ = {
 			isa = PBXGroup;
 			children = (
-				BA0DED6F2BBA50C000059C30 /* TodayBigCellTransition.swift */,
+				BA0DED6F2BBA50C000059C30 /* ItunesDetailViewControllerTransition.swift */,
 				BA24427F2BBBF17700413B95 /* CardPresentationController.swift */,
 				BA2745A52BBF8767002C3D8A /* TransitionAnimatonType.swift */,
 			);
-			path = CardTransition;
+			path = Transition;
 			sourceTree = "<group>";
 		};
 		BA2442812BBC15FD00413B95 /* Constant */ = {
@@ -243,7 +241,7 @@
 			children = (
 				BAB14F2B2BBE62A300B63EC8 /* View */,
 				BA2442812BBC15FD00413B95 /* Constant */,
-				BA0DED6E2BBA50B400059C30 /* CardTransition */,
+				BA0DED6E2BBA50B400059C30 /* Transition */,
 				BAA487F62BB7BA6000AD7AEC /* Coordinator */,
 				BAA487EB2BB7AE5100AD7AEC /* Extension */,
 				BAA488092BB81BC200AD7AEC /* JsonMapper.swift */,
@@ -267,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				BAA487DB2BB7A63200AD7AEC /* TodayViewController.swift */,
-				BAA487E92BB7AB1000AD7AEC /* TodayNavigationTitleView.swift */,
 				BAA487FC2BB7C79300AD7AEC /* TodayBigCollectionViewCell.swift */,
 				BAA488172BB9168E00AD7AEC /* TodayBannerCollectionViewCell.swift */,
 				BAA4881B2BB93A6500AD7AEC /* TodayListCollectionViewCell.swift */,
@@ -564,9 +561,8 @@
 				BAA487F02BB7B53A00AD7AEC /* Endpoint.swift in Sources */,
 				BA2442952BBD4E5100413B95 /* ItunesAppDetailViewModel.swift in Sources */,
 				BAA488082BB80B3500AD7AEC /* Image+Color.swift in Sources */,
-				BA0DED702BBA50C000059C30 /* TodayBigCellTransition.swift in Sources */,
+				BA0DED702BBA50C000059C30 /* ItunesDetailViewControllerTransition.swift in Sources */,
 				BAA488042BB804BD00AD7AEC /* Fonts.swift in Sources */,
-				BAA487EA2BB7AB1000AD7AEC /* TodayNavigationTitleView.swift in Sources */,
 				BAEE28632BBEDC6C00EFB923 /* AppDetailScreenshotCollectionViewCell.swift in Sources */,
 				BAEE28672BBEF00A00EFB923 /* AdditionalInfoNameAndValueTableViewCell.swift in Sources */,
 			);

@@ -14,6 +14,7 @@ final class TodayCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.navigationBar.prefersLargeTitles = true
     }
     
     func start() {
@@ -23,10 +24,17 @@ final class TodayCoordinator: Coordinator {
         navigationController.viewControllers = [vc]
     }
     
-    func openAppDetailWithTransitionFromBigCell(with app: ItunesApp) {
-        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app, transition: true)
+    func openAppDetail(with app: ItunesApp) {
+        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
         coordinator.parent = self
         children.append(coordinator)
-        coordinator.startWithTransition()
+        coordinator.start()
+    }
+    
+    func openAppDetailWithTransition(with app: ItunesApp, from item: TodayItem) {
+        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
+        coordinator.parent = self
+        children.append(coordinator)
+        coordinator.startWithTransition(item: item)
     }
 }

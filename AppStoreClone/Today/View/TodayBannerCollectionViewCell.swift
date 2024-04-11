@@ -12,14 +12,14 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TodayBannerCollectionViewCell"
     
-    private let containerView: UIStackView = {
+    let containerView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.alignment = .center
         return sv
     }()
     
-    private let appIconContainerView: UIView = {
+    let appIconContainerView: UIView = {
         let view = UIView()
         return view
     }()
@@ -80,8 +80,8 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
         appIconImageView.clipsToBounds = true
         
         appIconContainerView.snp.makeConstraints { make in
-            make.width.equalTo(containerView.snp.height).multipliedBy(0.5)
-            make.height.equalTo(containerView.snp.height).multipliedBy(0.5)
+            make.width.equalTo(TodayViewController.SizeConstant.bannerCellIconWidth)
+            make.height.equalTo(TodayViewController.SizeConstant.bannerCellIconWidth)
             make.top.equalToSuperview().offset(15)
         }
         

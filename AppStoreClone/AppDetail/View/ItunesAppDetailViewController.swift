@@ -17,6 +17,7 @@ class ItunesAppDetailViewController: UIViewController {
     var vm: ItunesAppDetailViewModel!
     private let disposeBag = DisposeBag()
     var cellHeights = [CGFloat]()
+    var item: TodayItem?
     
     let tableView: UITableView = {
         let tv = UITableView()
@@ -132,8 +133,14 @@ extension ItunesAppDetailViewController {
         closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
     }
     
-    func hideViews() {
+    func hideCloseButton() {
         closeButton.isHidden = true
+    }
+    
+    func clipBigImage() {
+        guard let cell = tableView.cellForRow(at: .init(row: 0, section: 0)) as? AppDetailHeadImageTableViewCell else { return }
+        cell.layer.cornerRadius = 20
+        cell.clipsToBounds = true
     }
     
     @objc private func close() {
@@ -142,7 +149,8 @@ extension ItunesAppDetailViewController {
 }
 
 extension ItunesAppDetailViewController {
-    func setTransition() {
+    func setTransition(item: TodayItem) {
+        self.item = item
         modalPresentationStyle = .custom
         transitioningDelegate = self
     }
@@ -169,10 +177,18 @@ extension ItunesAppDetailViewController: UIViewControllerTransitioningDelegate {
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return TodayBigCellTransition(animationType: .present)
+        if let item = item {
+            return ItunesDetailViewControllerTransition(animationType: .present, item: item)
+        }
+        
+        return nil
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return TodayBigCellTransition(animationType: .dismiss)
+        if let item = item {
+            return ItunesDetailViewControllerTransition(animationType: .dismiss, item: item)
+        }
+        
+        return nil
     }
 }
