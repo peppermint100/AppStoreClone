@@ -23,16 +23,12 @@ final class ItunesAppDetailCoordinator: Coordinator {
     func start() {
         let vc = ItunesAppDetailViewController()
         let vm = ItunesAppDetailViewModel(coordinator: self, app: app)
-        vc.hideCloseButton()
         vc.vm = vm
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func startWithTransition(item: TodayItem) {
-        let vc = ItunesAppDetailViewController()
-        let vm = ItunesAppDetailViewModel(coordinator: self, app: app)
-        vc.vm = vm
-        vc.setTransition(item: item)
-        navigationController.present(vc, animated: true)
+    func openScreenshot() {
+        let vc = ScreenshotDetailViewController()
+        navigationController.presentedViewController?.present(vc, animated: true)
     }
 }

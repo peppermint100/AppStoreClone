@@ -46,8 +46,15 @@ final class TodayViewModel: Coordinating {
         coordinator.openAppDetail(with: app)
     }
     
-    func transitionToDetail(with app: ItunesApp, from item: TodayItem) {
+    func openCard(with item: TodayItem) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
-        coordinator.openAppDetailWithTransition(with: app, from: item)
+        switch item {
+        case .big(let app):
+            coordinator.openCard(with: app, from: item)
+        case .banner(let app):
+            coordinator.openCard(with: app, from: item)
+        default:
+            return
+        }
     }
 }

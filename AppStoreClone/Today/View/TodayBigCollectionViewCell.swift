@@ -86,16 +86,6 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func hideViews() {
-        titleLabel.isHidden = true
-        descLabel.isHidden = true
-    }
-    
-    func showViews() {
-        titleLabel.isHidden = false
-        descLabel.isHidden = false
-    }
-    
     required init?(coder: NSCoder) {
         fatalError()
     }

@@ -31,10 +31,11 @@ final class TodayCoordinator: Coordinator {
         coordinator.start()
     }
     
-    func openAppDetailWithTransition(with app: ItunesApp, from item: TodayItem) {
-        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
-        coordinator.parent = self
-        children.append(coordinator)
-        coordinator.startWithTransition(item: item)
+    func openCard(with app: ItunesApp, from item: TodayItem) {
+        let vc = TodayCardViewController()
+        let vm = TodayCardViewModel(coordinator: self, app: app, item: item)
+        vc.vm = vm
+        vc.setTransition()
+        navigationController.present(vc, animated: true)
     }
 }

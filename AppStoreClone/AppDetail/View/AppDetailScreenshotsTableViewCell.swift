@@ -16,6 +16,8 @@ class AppDetailScreenshotsTableViewCell: UITableViewCell {
     
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     
+    var didTapScreenshot: (() -> Void)?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -43,8 +45,15 @@ class AppDetailScreenshotsTableViewCell: UITableViewCell {
         fatalError()
     }
     
-    func configure(with screenshotsUrlString: [String]) {
+    func configure(with screenshotsUrlString: [String], didTapCell: (() -> Void)?) {
         self.screenshotsUrlString = screenshotsUrlString
+        self.didTapScreenshot = didTapCell
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTap))
+        self.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func didTap() {
+        self.didTapScreenshot?()
     }
 }
 

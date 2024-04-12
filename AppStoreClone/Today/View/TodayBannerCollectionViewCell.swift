@@ -12,7 +12,7 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "TodayBannerCollectionViewCell"
     
-    let containerView: UIStackView = {
+    private let containerView: UIStackView = {
         let sv = UIStackView()
         sv.axis = .vertical
         sv.alignment = .center

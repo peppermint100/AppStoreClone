@@ -17,7 +17,6 @@ class ItunesAppDetailViewController: UIViewController {
     var vm: ItunesAppDetailViewModel!
     private let disposeBag = DisposeBag()
     var cellHeights = [CGFloat]()
-    var item: TodayItem?
     
     let tableView: UITableView = {
         let tv = UITableView()
@@ -30,26 +29,10 @@ class ItunesAppDetailViewController: UIViewController {
         return tv
     }()
     
-    private let closeButton: UIButton = {
-        let button = UIButton()
-        let config = UIImage.SymbolConfiguration(font: .boldSystemFont(ofSize: 16))
-        button.setImage(Symbols.xMark?.withConfiguration(config), for: .normal)
-        button.tintColor = .darkGray
-        button.backgroundColor = .systemGray4
-        return button
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupCloseButton()
         bind()
-    }
-    
-    func showViews() {
-        tableView.snp.remakeConstraints({ make in
-            make.edges.equalToSuperview()
-        })
     }
 }
 
@@ -88,7 +71,9 @@ extension ItunesAppDetailViewController {
                 case .screenshots(let screenshotsUrlsString):
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: AppDetailScreenshotsTableViewCell.identifier)
                             as? AppDetailScreenshotsTableViewCell else { return UITableViewCell() }
-                    cell.configure(with: screenshotsUrlsString)
+                    cell.configure(with: screenshotsUrlsString) { [weak self] in
+                        self?.vm.openScreenshotDetail()
+                    }
                     return cell
                 case .additionalInfo(let infoList):
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: AppDetailAdditionalInfoTableViewCell.identifier)
@@ -118,42 +103,6 @@ extension ItunesAppDetailViewController {
         
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
-    
-    private func setupCloseButton() {
-        view.addSubview(closeButton)
-        closeButton.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.trailing.equalToSuperview().offset(-10)
-            make.width.height.equalTo(30)
-        }
-        
-        closeButton.layer.cornerRadius = 15
-        closeButton.clipsToBounds = true
-        
-        closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
-    }
-    
-    func hideCloseButton() {
-        closeButton.isHidden = true
-    }
-    
-    func clipBigImage() {
-        guard let cell = tableView.cellForRow(at: .init(row: 0, section: 0)) as? AppDetailHeadImageTableViewCell else { return }
-        cell.layer.cornerRadius = 20
-        cell.clipsToBounds = true
-    }
-    
-    @objc private func close() {
-        dismiss(animated: true)
-    }
-}
-
-extension ItunesAppDetailViewController {
-    func setTransition(item: TodayItem) {
-        self.item = item
-        modalPresentationStyle = .custom
-        transitioningDelegate = self
-    }
 }
 
 extension ItunesAppDetailViewController: UITableViewDelegate {
@@ -168,27 +117,5 @@ extension ItunesAppDetailViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-    }
-}
-
-extension ItunesAppDetailViewController: UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        return CardPresentationController(presentedViewController: presented, presenting: presenting)
-    }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let item = item {
-            return ItunesDetailViewControllerTransition(animationType: .present, item: item)
-        }
-        
-        return nil
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if let item = item {
-            return ItunesDetailViewControllerTransition(animationType: .dismiss, item: item)
-        }
-        
-        return nil
     }
 }

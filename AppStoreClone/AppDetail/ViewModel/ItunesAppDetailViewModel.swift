@@ -103,7 +103,15 @@ extension ItunesAppDetailViewModel {
         
         return stars
     }
-    
+
+}
+
+extension ItunesAppDetailViewModel {
+    func openScreenshotDetail() {
+        guard let coordinator = coordinator as? ItunesAppDetailCoordinator else { return }
+        coordinator.openScreenshot()
+    }
+        
     private func getScreenshotDirection(urlString: String) -> ScreenshotDirection {
         let pattern = "(\\d+)x(\\d+)"
         
