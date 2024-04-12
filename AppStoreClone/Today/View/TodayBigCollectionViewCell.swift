@@ -14,17 +14,9 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.font = Fonts.title
         label.numberOfLines = 2
-        return label
-    }()
-    
-    private let descLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        label.font = Fonts.subtitle
-        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -53,7 +45,6 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         
         bgContainer.addSubview(bgImageView)
         bgContainer.addSubview(titleLabel)
-        bgContainer.addSubview(descLabel)
         
         bgImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -61,29 +52,15 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.bottom.equalTo(descLabel.snp.top)
-        }
-        
-        descLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.width.equalToSuperview().multipliedBy(0.6)
             make.bottom.equalToSuperview().offset(-20)
         }
     }
     
     func configure(with app: ItunesApp) {
         titleLabel.text = app.trackName
-        descLabel.text = app.description
         let url = URL(string: app.artworkUrl512)
         bgImageView.kf.indicatorType = .activity
-        bgImageView.kf.setImage(with: url) { [weak self] result in
-            switch result {
-            case .success(let value):
-                self?.bgImageView.labelGradient(.bottomLeft, .soft)
-            case .failure(_):
-                return
-            }
-        }
+        bgImageView.kf.setImage(with: url)
     }
     
     required init?(coder: NSCoder) {

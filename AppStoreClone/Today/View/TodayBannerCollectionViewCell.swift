@@ -38,20 +38,12 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .black
         label.font = Fonts.listTitle
         label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
-    
-    private let subtitleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .systemGray3
-        label.font = Fonts.listSubtitle
-        return label
-    }()
-    
-    private let openButton = OpenAppButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,8 +61,6 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
         appIconContainerView.addSubview(appIconImageView)
         
         appInfoView.addSubview(titleLabel)
-        appInfoView.addSubview(subtitleLabel)
-        appInfoView.addSubview(openButton)
         
         containerView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -96,19 +86,8 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.width.equalToSuperview().multipliedBy(0.7)
-        }
-        
-        subtitleLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.top.equalTo(titleLabel.snp.bottom)
-        }
-        
-        openButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-20)
             make.centerY.equalToSuperview()
-            make.width.equalTo(80)
-            make.height.equalTo(40)
+            make.width.equalToSuperview().multipliedBy(0.7)
         }
     }
     
@@ -118,17 +97,7 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
     
     func configure(with app: ItunesApp) {
         titleLabel.text = app.trackName
-        subtitleLabel.text = app.artistName
         let url = URL(string: app.artworkUrl100)
-        appIconImageView.kf.setImage(with: url) { [weak self] result in
-            switch result {
-            case .success(let value):
-                self?.containerView.backgroundColor = value.image.averageColor?.withAlphaComponent(0.3)
-                self?.appInfoView.labelGradient(.bottom, .soft)
-            case .failure:
-                return
-            }
-        }
-        openButton.configure(trackId: app.trackID)
+        appIconImageView.kf.setImage(with: url)
     }
 }
