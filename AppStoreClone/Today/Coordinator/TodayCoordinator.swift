@@ -24,18 +24,17 @@ final class TodayCoordinator: Coordinator {
         navigationController.viewControllers = [vc]
     }
     
-    func openAppDetail(with app: ItunesApp) {
+    func navigateToAppDetail(with app: ItunesApp) {
         let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
         coordinator.parent = self
         children.append(coordinator)
         coordinator.start()
     }
     
-    func openCard(with app: ItunesApp, from item: TodayItem) {
-        let vc = TodayCardViewController()
-        let vm = TodayCardViewModel(coordinator: self, app: app, item: item)
-        vc.vm = vm
-        vc.setTransition()
-        navigationController.present(vc, animated: true)
+    func presentCard(with app: ItunesApp, from item: TodayItem) {
+        let coordinator = TodayCardCoordinator(navigationController: navigationController, app: app, item: item)
+        coordinator.parent = self
+        children.append(coordinator)
+        coordinator.start()
     }
 }
