@@ -43,7 +43,7 @@ class TodayCardViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupCloseButton()
-        configure()
+        bind()
     }
     
     private func setupUI() {
@@ -99,12 +99,6 @@ class TodayCardViewController: UIViewController {
         
         closeButton.layer.cornerRadius = 15
         closeButton.clipsToBounds = true
-        
-        closeButton.addTarget(self, action: #selector(close), for: .touchUpInside)
-    }
-    
-    @objc private func close() {
-        dismiss(animated: true)
     }
     
     func hideCloseButton() {
@@ -116,8 +110,10 @@ class TodayCardViewController: UIViewController {
         imageView.clipsToBounds = true
     }
     
-    private func configure() {
-        let input = TodayCardViewModel.Input()
+    private func bind() {
+        let input = TodayCardViewModel.Input(
+            closeButtonTapped: closeButton.rx.tap.asObservable()
+        )
         let output = vm.transform(input)
         
         let imageUrl = URL(string: output.app.artworkUrl512)

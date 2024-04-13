@@ -41,18 +41,18 @@ final class TodayViewModel: Coordinating {
         )
     }
     
-    func didTapCell(with app: ItunesApp) {
+    func didTapListCell(with app: ItunesApp) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
-        coordinator.openAppDetail(with: app)
+        coordinator.navigateToAppDetail(with: app)
     }
     
-    func openCard(with item: TodayItem) {
+    func didTapBigOrBannerCell(with item: TodayItem) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
         switch item {
         case .big(let app):
-            coordinator.openCard(with: app, from: item)
+            coordinator.presentCard(with: app, from: item)
         case .banner(let app):
-            coordinator.openCard(with: app, from: item)
+            coordinator.presentCard(with: app, from: item)
         default:
             return
         }

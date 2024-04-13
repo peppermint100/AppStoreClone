@@ -78,15 +78,15 @@ final class TodayViewController: UIViewController {
             case .big(let app):
                 let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBigCollectionViewCell
                 self?.selectedBigCell = cell
-                self?.vm.openCard(with: .big(app))
+                self?.vm.didTapBigOrBannerCell(with: .big(app))
                 return
             case .banner(let app):
                 let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBannerCollectionViewCell
                 self?.selectedBannerCell = cell
-                self?.vm.openCard(with: .banner(app))
+                self?.vm.didTapBigOrBannerCell(with: .banner(app))
                 return
             case .list(let app):
-                self?.vm.didTapCell(with: app)
+                self?.vm.didTapListCell(with: app)
                 return
             default:
                 return

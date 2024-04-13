@@ -8,7 +8,7 @@
 import UIKit
 
 enum Fonts {
-    static let title = UIFont.systemFont(ofSize: 30, weight: .bold)
+    static let title = UIFont.systemFont(ofSize: 28, weight: .bold)
     static let subtitle = UIFont.systemFont(ofSize: 18, weight: .semibold)
     
     static let appDetailTitle = UIFont.systemFont(ofSize: 22, weight: .semibold)

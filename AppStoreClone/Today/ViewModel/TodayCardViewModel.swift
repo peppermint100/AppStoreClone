@@ -6,11 +6,14 @@
 //
 
 import Foundation
+import RxSwift
 
 final class TodayCardViewModel: Coordinating {
     var coordinator: Coordinator
     var app: ItunesApp
     var item: TodayItem
+    
+    let disposeBag = DisposeBag()
     
     init(coordinator: Coordinator, app: ItunesApp, item: TodayItem) {
         self.coordinator = coordinator
@@ -19,6 +22,7 @@ final class TodayCardViewModel: Coordinating {
     }
     
     struct Input {
+        let closeButtonTapped: Observable<Void>
     }
     
     struct Output {
@@ -26,9 +30,20 @@ final class TodayCardViewModel: Coordinating {
     }
     
     func transform(_ input: TodayCardViewModel.Input) -> TodayCardViewModel.Output {
+        
+        input.closeButtonTapped.subscribe(onNext: { _ in
+            self.dismissDetail()
+        })
+        .disposed(by: disposeBag)
+        
         return TodayCardViewModel.Output(
             app: self.app
         )
+    }
+    
+    func dismissDetail() {
+        guard let coordinator = self.coordinator as? TodayCardCoordinator else { return }
+        coordinator.dismiss()
     }
 }
 

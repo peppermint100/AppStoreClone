@@ -14,7 +14,7 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.font = Fonts.title
         label.numberOfLines = 2
         return label

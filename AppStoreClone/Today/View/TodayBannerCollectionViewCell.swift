@@ -38,7 +38,7 @@ class TodayBannerCollectionViewCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.font = Fonts.listTitle
         label.numberOfLines = 2
         label.lineBreakMode = .byTruncatingTail
