@@ -8,15 +8,19 @@
 import UIKit
 
 final class ItunesAppDetailCoordinator: Coordinator {
+    
     var parent: Coordinator?
-    
     var children: [Coordinator] = []
-    
     var navigationController: UINavigationController
     let app: ItunesApp
     
     init(navigationController: UINavigationController, app: ItunesApp) {
         self.navigationController = navigationController
+        self.app = app
+    }
+    
+    init(app: ItunesApp) {
+        self.navigationController = UINavigationController()
         self.app = app
     }
     
@@ -30,5 +34,10 @@ final class ItunesAppDetailCoordinator: Coordinator {
     func openScreenshot() {
         let vc = ScreenshotDetailViewController()
         navigationController.presentedViewController?.present(vc, animated: true)
+    }
+    
+    func pop() {
+        navigationController.popViewController(animated: true)
+        parent?.childDidFinish(self)
     }
 }

@@ -29,16 +29,26 @@ class ItunesAppDetailViewController: UIViewController {
         return tv
     }()
     
+    private let backButton: UIBarButtonItem = {
+        let config = UIImage.SymbolConfiguration(font: .systemFont(ofSize: 24))
+        let button = UIBarButtonItem(image: Symbols.arrowBackwordCircleFill?.withConfiguration(config), style: .plain, target: nil, action: nil)
+        button.tintColor = .systemGray
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupNavigation()
         bind()
     }
 }
 
 extension ItunesAppDetailViewController {
     private func bind() {
-        let input = ItunesAppDetailViewModel.Input()
+        let input = ItunesAppDetailViewModel.Input(
+            backButtonTapped: backButton.rx.tap.asObservable()
+        )
         let output = vm.transform(input)
         
         output.cells
@@ -102,6 +112,10 @@ extension ItunesAppDetailViewController {
         }
         
         tableView.rx.setDelegate(self).disposed(by: disposeBag)
+    }
+    
+    private func setupNavigation() {
+        navigationItem.leftBarButtonItem = backButton
     }
 }
 

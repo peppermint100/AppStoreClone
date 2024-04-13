@@ -12,6 +12,7 @@ import RxSwift
 final class ItunesAppDetailViewModel: Coordinating {
     var coordinator: Coordinator
     var app: ItunesApp
+    private let disposeBag = DisposeBag()
     
     init(coordinator: Coordinator, app: ItunesApp) {
         self.app = app
@@ -19,6 +20,7 @@ final class ItunesAppDetailViewModel: Coordinating {
     }
     
     struct Input {
+        let backButtonTapped: Observable<Void>
     }
     
     struct Output {
@@ -65,6 +67,11 @@ final class ItunesAppDetailViewModel: Coordinating {
             SizeConstant.infoList
         ])
         
+        input.backButtonTapped.subscribe(onNext: { [weak self] _ in
+            self?.backButtonTapped()
+        })
+        .disposed(by: disposeBag)
+        
         return ItunesAppDetailViewModel.Output(cells: cells, cellHeights: cellHeights)
     }
 }
@@ -104,6 +111,13 @@ extension ItunesAppDetailViewModel {
         return stars
     }
 
+}
+
+extension ItunesAppDetailViewModel {
+    func backButtonTapped() {
+        guard let coordinator = coordinator as? ItunesAppDetailCoordinator else { return }
+        coordinator.pop()
+    }
 }
 
 extension ItunesAppDetailViewModel {
