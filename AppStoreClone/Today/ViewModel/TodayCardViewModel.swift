@@ -47,9 +47,12 @@ final class TodayCardViewModel: Coordinating {
     }
 }
 
+
 extension TodayCardViewModel {
     enum SizeConstant {
-        static let imageViewHeight: CGFloat = 400
+        static let imageViewHeight: CGFloat = 500
         static let appItemViewHeight: CGFloat = 120
     }
 }
+
+

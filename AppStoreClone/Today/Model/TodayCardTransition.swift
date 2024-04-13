@@ -39,7 +39,6 @@ extension TodayCardTransition: UIViewControllerAnimatedTransitioning {
         default:
             return
         }
-        
     }
 }
 
@@ -80,10 +79,8 @@ private extension TodayCardTransition {
         guard let fromVC = transitionContext.viewController(forKey: .from) as? TodayCardViewController else { return }
         guard let toVC = transitionContext.viewController(forKey: .to) as? UITabBarController else { return }
         guard let navigationController = toVC.viewControllers?.first as? UINavigationController else { return }
-        guard let tableViewController = navigationController.viewControllers.first as? TodayViewController else { return }
-        guard let selectedCell = tableViewController.selectedBannerCell else { return }
         
-        fromVC.hideCloseButton()
+        fromVC.hideViews()
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
             fromVC.view.frame.origin.y = toVC.view.frame.height
@@ -105,8 +102,8 @@ private extension TodayCardTransition {
         let containerView = transitionContext.containerView
         guard let fromVC = transitionContext.viewController(forKey: .from) as? UITabBarController else { return }
         guard let navigationController = fromVC.viewControllers?.first as? UINavigationController else { return }
-        guard let tableViewController = navigationController.viewControllers.first as? TodayViewController else { return }
-        guard let selectedCell = tableViewController.selectedBigCell else { return }
+        guard let todayVC = navigationController.viewControllers.first as? TodayViewController else { return }
+        guard let selectedCell = todayVC.selectedBigCell else { return }
         guard let toVC = transitionContext.viewController(forKey: .to) as? TodayCardViewController else { return }
         
         containerView.addSubview(toVC.view)
@@ -137,14 +134,14 @@ private extension TodayCardTransition {
         guard let fromVC = transitionContext.viewController(forKey: .from) as? TodayCardViewController else { return }
         guard let toVC = transitionContext.viewController(forKey: .to) as? UITabBarController else { return }
         guard let navigationController = toVC.viewControllers?.first as? UINavigationController else { return }
-        guard let tableViewController = navigationController.viewControllers.first as? TodayViewController else { return }
-        guard let selectedCell = tableViewController.selectedBigCell else { return }
+        guard let todayVC = navigationController.viewControllers.first as? TodayViewController else { return }
+        guard let selectedCell = todayVC.selectedBigCell else { return }
         
-        let frame = selectedCell.convert(selectedCell.bgContainer.frame, to: toVC.view)
-        fromVC.hideCloseButton()
         fromVC.clipImage()
+        fromVC.hideViews()
         
         UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [.curveEaseInOut], animations: {
+            let frame = selectedCell.convert(selectedCell.bgContainer.frame, to: toVC.view)
             fromVC.view.frame = frame
             fromVC.imageView.frame.size.width = TodayViewController.SizeConstant.bigCellImageWidth
             fromVC.imageView.frame.size.height = TodayViewController.SizeConstant.bigCellImageHeight

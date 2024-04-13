@@ -8,12 +8,17 @@
 import UIKit
 import SnapKit
 import Kingfisher
+import RxSwift
+import RxGesture
 
 class TodayCardViewController: UIViewController {
     var vm: TodayCardViewModel!
     
+    private var draggingDown = false
+    
     private let scrollView = UIScrollView()
     private let contentView = UIView()
+    let disposeBag = DisposeBag()
     
     let imageView: UIImageView = {
         let iv = UIImageView()
@@ -44,6 +49,7 @@ class TodayCardViewController: UIViewController {
         setupUI()
         setupCloseButton()
         bind()
+        bindView()
     }
     
     private func setupUI() {
@@ -101,7 +107,9 @@ class TodayCardViewController: UIViewController {
         closeButton.clipsToBounds = true
     }
     
-    func hideCloseButton() {
+    func hideViews() {
+        appItemView.isHidden = true
+        descLabel.isHidden = true
         closeButton.isHidden = true
     }
     
@@ -120,6 +128,57 @@ class TodayCardViewController: UIViewController {
         imageView.kf.setImage(with: imageUrl)
         appItemView.configure(with: output.app)
         descLabel.text = output.app.description
+    }
+    
+    private func bindView() {
+        view.rx.panGesture()
+            .subscribe(onNext: { [weak self] gesture in
+                self?.handlePanGesture(gesture)
+            })
+            .disposed(by: disposeBag)
+        
+        scrollView.rx.contentOffset
+            .subscribe(onNext: { [weak self] contentOffset in
+                if contentOffset.y < 0 {
+                    self?.draggingDown = true
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func handlePanGesture(_ panGesture: UIPanGestureRecognizer) {
+        if !draggingDown { return }
+        
+        switch panGesture.state {
+        case .began, .changed:
+            scrollView.isScrollEnabled = false
+            scrollView.showsVerticalScrollIndicator = false
+            let translation = panGesture.translation(in: view)
+            let ratio = imageView.frame.height / (imageView.frame.height + translation.y)
+            self.view.transform = CGAffineTransform(scaleX: ratio, y: ratio)
+            
+            if ratio < 0.8 {
+                vm.dismissDetail()
+            }
+            
+        case .ended, .cancelled:
+            scrollView.isScrollEnabled = true
+            scrollView.showsVerticalScrollIndicator = true
+            draggingDown = false
+            let translation = panGesture.translation(in: view)
+            let ratio = imageView.frame.height / (imageView.frame.height + translation.y)
+            
+            if ratio > 0.8 {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.view.transform = .identity
+                })
+                return
+            }
+            
+            vm.dismissDetail()
+        default:
+            return
+        }
     }
 }
 
