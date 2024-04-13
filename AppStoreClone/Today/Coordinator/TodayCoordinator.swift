@@ -14,6 +14,7 @@ final class TodayCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.navigationBar.prefersLargeTitles = true
     }
     
     func start() {
@@ -23,8 +24,15 @@ final class TodayCoordinator: Coordinator {
         navigationController.viewControllers = [vc]
     }
     
-    func toAppDetail(with app: ItunesApp, transition: Bool? = false) {
-        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app, transition: true)
+    func navigateToAppDetail(with app: ItunesApp) {
+        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
+        coordinator.parent = self
+        children.append(coordinator)
+        coordinator.start()
+    }
+    
+    func presentCard(with app: ItunesApp, from item: TodayItem) {
+        let coordinator = TodayCardCoordinator(navigationController: navigationController, app: app, item: item)
         coordinator.parent = self
         children.append(coordinator)
         coordinator.start()

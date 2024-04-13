@@ -9,6 +9,7 @@ target 'AppStoreClone' do
   pod 'RxCocoa'
   pod 'RxDataSources'
   pod 'Kingfisher'
+  pod 'RxGesture'
   # Pods for AppStoreClone
 
 end

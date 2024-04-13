@@ -12,4 +12,5 @@ enum Symbols {
     static let xMark = UIImage(systemName: "xmark")
     static let personCropSquare = UIImage(systemName: "person.crop.square")
     static let safari = UIImage(systemName: "safari")
+    static let arrowBackwordCircleFill = UIImage(systemName: "arrow.backward.circle.fill")
 }

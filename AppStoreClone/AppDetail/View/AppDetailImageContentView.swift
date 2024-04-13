@@ -1,23 +1,18 @@
 //
-//  AppDetailBigTableViewCell.swift
+//  AppDetailImageContentView.swift
 //  AppStoreClone
 //
-//  Created by peppermint100 on 4/4/24.
+//  Created by peppermint100 on 4/5/24.
 //
 
 import UIKit
-import SnapKit
-import Kingfisher
 
-class AppDetailHeadImageTableViewCell: UITableViewCell {
-    
-    static let identifier = "AppDetailHeadImageTableViewCell"
-    
+class AppDetailImageContentView: UIView {
     let iv = UIImageView()
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.addSubview(iv)
+    override init(frame: CGRect){
+        super.init(frame: frame)
+        addSubview(iv)
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         

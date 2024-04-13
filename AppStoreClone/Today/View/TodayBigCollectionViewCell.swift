@@ -20,15 +20,12 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let descLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .lightGray
-        label.font = Fonts.subtitle
-        label.lineBreakMode = .byTruncatingTail
-        return label
+    let bgContainer: UIView = {
+        let view = UIView()
+        return view
     }()
     
-    let bgImageView: UIImageView = {
+    private let bgImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         return iv
@@ -36,41 +33,34 @@ class TodayBigCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.addSubview(bgImageView)
+        contentView.addSubview(bgContainer)
         
-        bgImageView.frame = CGRect(x: 0, y: 0, width: SizeConstant.bigCellImageWidth, height: SizeConstant.bigCellImageHeight)
-        bgImageView.layer.cornerRadius = 20
-        bgImageView.clipsToBounds = true
+        bgContainer.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.height.equalTo(TodayViewController.SizeConstant.bigCellImageHeight)
+        }
         
-        bgImageView.addSubview(titleLabel)
-        bgImageView.addSubview(descLabel)
+        bgContainer.layer.cornerRadius = 20
+        bgContainer.clipsToBounds = true
+        
+        bgContainer.addSubview(bgImageView)
+        bgContainer.addSubview(titleLabel)
+        
+        bgImageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
         titleLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview().offset(20)
-            make.bottom.equalTo(descLabel.snp.top)
-        }
-        
-        descLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.width.equalToSuperview().multipliedBy(0.6)
             make.bottom.equalToSuperview().offset(-20)
         }
     }
     
     func configure(with app: ItunesApp) {
         titleLabel.text = app.trackName
-        descLabel.text = app.description
         let url = URL(string: app.artworkUrl512)
         bgImageView.kf.indicatorType = .activity
-        bgImageView.kf.setImage(with: url) { [weak self] result in
-            switch result {
-            case .success(let value):
-                guard let averageColor = value.image.averageColor else { return }
-                self?.bgImageView.labelGradient(.bottomLeft, .soft)
-            case .failure(_):
-                return
-            }
-        }
+        bgImageView.kf.setImage(with: url)
     }
     
     required init?(coder: NSCoder) {

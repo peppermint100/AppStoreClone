@@ -1,14 +1,14 @@
 PODS:
-  - Cards (1.4.0):
-    - Player (= 0.13.0)
   - Differentiator (5.0.0)
   - Kingfisher (7.11.0)
-  - Player (0.13.0)
   - RxCocoa (6.6.0):
     - RxRelay (= 6.6.0)
     - RxSwift (= 6.6.0)
   - RxDataSources (5.0.0):
     - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxGesture (4.0.4):
     - RxCocoa (~> 6.0)
     - RxSwift (~> 6.0)
   - RxRelay (6.6.0):
@@ -17,36 +17,34 @@ PODS:
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
-  - Cards
   - Kingfisher
   - RxCocoa
   - RxDataSources
+  - RxGesture
   - RxSwift
   - SnapKit
 
 SPEC REPOS:
   trunk:
-    - Cards
     - Differentiator
     - Kingfisher
-    - Player
     - RxCocoa
     - RxDataSources
+    - RxGesture
     - RxRelay
     - RxSwift
     - SnapKit
 
 SPEC CHECKSUMS:
-  Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   Kingfisher: b9c985d864d43515f404f1ef4a8ce7d802ace3ac
-  Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
   RxCocoa: 44a80de90e25b739b5aeaae3c8c371a32e3343cc
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxGesture: f3efb47ed2d26a8082f7b660d4a59970e275a7f8
   RxRelay: 45eaa5db8ee4fb50e5ebd57deec0159e97fa51e6
   RxSwift: a4b44f7d24599f674deebd1818eab82e58410632
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 85da8262daf0e1ee0c3e16050527cbdcbb81c656
+PODFILE CHECKSUM: 9ce6c81d9f0d5b4e61c132d63e7ca9f099cefc0b
 
 COCOAPODS: 1.14.3

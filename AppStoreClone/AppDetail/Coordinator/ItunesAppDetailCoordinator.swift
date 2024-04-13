@@ -8,24 +8,36 @@
 import UIKit
 
 final class ItunesAppDetailCoordinator: Coordinator {
+    
     var parent: Coordinator?
-    
     var children: [Coordinator] = []
-    
     var navigationController: UINavigationController
     let app: ItunesApp
-    var transition: Bool = false
     
-    init(navigationController: UINavigationController, app: ItunesApp, transition: Bool = false) {
+    init(navigationController: UINavigationController, app: ItunesApp) {
         self.navigationController = navigationController
         self.app = app
-        self.transition = transition
+    }
+    
+    init(app: ItunesApp) {
+        self.navigationController = UINavigationController()
+        self.app = app
     }
     
     func start() {
         let vc = ItunesAppDetailViewController()
         let vm = ItunesAppDetailViewModel(coordinator: self, app: app)
         vc.vm = vm
-        navigationController.present(vc, animated: true)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func openScreenshot() {
+        let vc = ScreenshotDetailViewController()
+        navigationController.presentedViewController?.present(vc, animated: true)
+    }
+    
+    func pop() {
+        navigationController.popViewController(animated: true)
+        parent?.childDidFinish(self)
     }
 }
