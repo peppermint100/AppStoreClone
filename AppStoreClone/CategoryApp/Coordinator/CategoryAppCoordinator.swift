@@ -24,4 +24,11 @@ final class CategoryAppCoordinator: Coordinator {
         vc.vm = vm
         navigationController.viewControllers = [vc]
     }
+    
+    func navigateToAppDetail(with app: ItunesApp) {
+        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
+        children.append(coordinator)
+        coordinator.parent = self
+        coordinator.start()
+    }
 }

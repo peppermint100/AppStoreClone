@@ -47,7 +47,7 @@ final class AppCoordinator: Coordinator {
         children.append(todayCoordinator)
         children.append(categoryAppCoordinator)
         
-        tabVC.viewControllers = [categoryAppNVC, todayNVC]
+        tabVC.viewControllers = [todayNVC, categoryAppNVC]
         
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()

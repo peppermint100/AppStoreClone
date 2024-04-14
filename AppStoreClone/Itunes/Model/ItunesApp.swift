@@ -27,7 +27,8 @@ struct ItunesApp: Codable, Hashable {
     let genreIDS: [String]
     let primaryGenreName: String
     let primaryGenreID, trackID: Int
-    let trackName, releaseNotes: String
+    let trackName: String
+    let releaseNotes: String?
     let artistID: Int
     let artistName: String
     let genres: [String]

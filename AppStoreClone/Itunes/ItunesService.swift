@@ -31,6 +31,10 @@ enum ItunesEndpoint {
     case today
     case delivery
     case game
+    case photo
+    case watch
+    case note
+    case map
 }
 
 extension ItunesEndpoint: Endpoint {
@@ -40,11 +44,7 @@ extension ItunesEndpoint: Endpoint {
     
     var method: HttpMethod {
         switch self {
-        case .game:
-            return .GET
-        case .today:
-            return .GET
-        case .delivery:
+        case .game, .today, .delivery, .map, .note, .photo, .watch:
             return .GET
         }
     }
@@ -65,6 +65,26 @@ extension ItunesEndpoint: Endpoint {
             return [
                 URLQueryItem(name: "term", value: "배달"),
                 URLQueryItem(name: "limit", value: "1")
+            ]
+        case .photo:
+            return [
+                URLQueryItem(name: "term", value: "사진"),
+                URLQueryItem(name: "limit", value: "9")
+            ]
+        case .watch:
+            return [
+                URLQueryItem(name: "term", value: "시계"),
+                URLQueryItem(name: "limit", value: "9")
+            ]
+        case .note:
+            return [
+                URLQueryItem(name: "term", value: "노트"),
+                URLQueryItem(name: "limit", value: "9")
+            ]
+        case .map:
+            return [
+                URLQueryItem(name: "term", value: "지도"),
+                URLQueryItem(name: "limit", value: "9")
             ]
         }
     }
