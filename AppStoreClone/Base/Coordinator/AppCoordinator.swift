@@ -30,11 +30,24 @@ final class AppCoordinator: Coordinator {
         todayNVC.tabBarItem = todayTabItem
         
         let todayCoordinator = TodayCoordinator(navigationController: todayNVC)
+        todayCoordinator.parent = self
         todayCoordinator.start()
         
-        children.append(todayCoordinator)
+        let categoryAppTabItem = UITabBarItem()
+        categoryAppTabItem.title = "앱"
+        categoryAppTabItem.image = Symbols.squareStackUpFill
         
-        tabVC.viewControllers = [todayNVC]
+        let categoryAppNVC = UINavigationController()
+        categoryAppNVC.tabBarItem = categoryAppTabItem
+        
+        let categoryAppCoordinator = CategoryAppCoordinator(navigationController: categoryAppNVC)
+        categoryAppCoordinator.parent = self
+        categoryAppCoordinator.start()
+        
+        children.append(todayCoordinator)
+        children.append(categoryAppCoordinator)
+        
+        tabVC.viewControllers = [todayNVC, categoryAppNVC]
         
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()

@@ -39,12 +39,19 @@ class ItunesAppItemListView: UIView {
 
     private let openButton = OpenAppButton()
     
+    private let divider: UIView = {
+        let view = UIView()
+        view.backgroundColor = .secondaryLabel
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .clear
         addSubview(appIconImageView)
         addSubview(labelStackView)
         addSubview(openButton)
+        addSubview(divider)
         
         labelStackView.addArrangedSubview(titleLabel)
         labelStackView.addArrangedSubview(subtitleLabel)
@@ -52,7 +59,7 @@ class ItunesAppItemListView: UIView {
         appIconImageView.layer.cornerRadius = 12
         appIconImageView.clipsToBounds = true
         
-        openButton.layer.cornerRadius = 20
+        openButton.layer.cornerRadius = 17
         openButton.clipsToBounds = true
         
         appIconImageView.snp.makeConstraints { make in
@@ -71,8 +78,15 @@ class ItunesAppItemListView: UIView {
         openButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.width.equalTo(80)
-            make.height.equalTo(40)
+            make.width.equalTo(70)
+            make.height.equalTo(35)
+        }
+        
+        divider.snp.makeConstraints { make in
+            make.trailing.equalToSuperview().inset(10)
+            make.leading.equalTo(appIconImageView.snp.trailing).offset(8)
+            make.top.equalTo(appIconImageView.snp.bottom)
+            make.height.equalTo(0.2)
         }
     }
     

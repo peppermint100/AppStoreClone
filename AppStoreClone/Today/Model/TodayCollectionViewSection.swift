@@ -13,10 +13,6 @@ enum TodaySection: Hashable {
     case vertical(String, String)
 }
 
-//struct TodaySection: Hashable {
-//    let id: String
-//}
-
 enum TodayItem: Hashable {
     case big(ItunesApp)
     case banner(ItunesApp)

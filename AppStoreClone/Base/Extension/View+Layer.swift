@@ -45,9 +45,13 @@ extension UIView {
         self.layer.shadowColor = UIColor.gray.cgColor
     }
     
-//    func roundCorners(cornerRadius: CGFloat, maskedCorners: CACornerMask) {
-//        clipsToBounds = true
-//        layer.cornerRadius = cornerRadius
-//        layer.maskedCorners = CACornerMask(arrayLiteral: maskedCorners)
-//    }
+    func applyGradient(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: CGPoint = CGPoint(x: 0.0, y: 0.0), endPoint: CGPoint = CGPoint(x: 1.0, y: 1.0)) {
+        let gradient = CAGradientLayer()
+        gradient.frame = self.bounds
+        gradient.colors = colors.map { $0.cgColor }
+        gradient.locations = locations
+        gradient.startPoint = startPoint
+        gradient.endPoint = endPoint
+        self.layer.insertSublayer(gradient, at: 0)
+    }
 }
