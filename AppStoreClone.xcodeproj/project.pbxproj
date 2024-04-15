@@ -15,6 +15,9 @@
 		BA03EA9B2BCCABFF007BE011 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */; };
 		BA03EA9E2BCCAC17007BE011 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */; };
 		BA03EAA12BCCADAE007BE011 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */; };
+		BA03EAA32BCCB4F5007BE011 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA22BCCB4F5007BE011 /* SearchResultViewController.swift */; };
+		BA03EAA52BCCEB01007BE011 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA42BCCEB01007BE011 /* SearchResultTableViewCell.swift */; };
+		BA03EAA92BCCF05F007BE011 /* ItunesApp+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA82BCCF05F007BE011 /* ItunesApp+String.swift */; };
 		BA0B9A9C2BCAAA4A00AB6F32 /* CategoryAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9A9B2BCAAA4A00AB6F32 /* CategoryAppViewController.swift */; };
 		BA0B9A9F2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9A9E2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift */; };
 		BA0B9AA22BCAAACE00AB6F32 /* CategoryAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9AA12BCAAACE00AB6F32 /* CategoryAppViewModel.swift */; };
@@ -91,6 +94,9 @@
 		BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		BA03EAA22BCCB4F5007BE011 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		BA03EAA42BCCEB01007BE011 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
+		BA03EAA82BCCF05F007BE011 /* ItunesApp+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItunesApp+String.swift"; sourceTree = "<group>"; };
 		BA0B9A9B2BCAAA4A00AB6F32 /* CategoryAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppViewController.swift; sourceTree = "<group>"; };
 		BA0B9A9E2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppCoordinator.swift; sourceTree = "<group>"; };
 		BA0B9AA12BCAAACE00AB6F32 /* CategoryAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */,
+				BA03EAA22BCCB4F5007BE011 /* SearchResultViewController.swift */,
+				BA03EAA42BCCEB01007BE011 /* SearchResultTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -427,6 +435,7 @@
 				BA24428D2BBD3C3E00413B95 /* StackView.swift */,
 				BAB14F242BBE508900B63EC8 /* UIWindow.swift */,
 				BAB14F262BBE52E800B63EC8 /* UILabel.swift */,
+				BA03EAA82BCCF05F007BE011 /* ItunesApp+String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -642,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA0B9AA82BCAD24300AB6F32 /* CategoryCollectionViewSection.swift in Sources */,
+				BA03EAA32BCCB4F5007BE011 /* SearchResultViewController.swift in Sources */,
 				BAA4881C2BB93A6500AD7AEC /* TodayListCollectionViewCell.swift in Sources */,
 				BA2745A42BBF7FC7002C3D8A /* AdditionalInfo.swift in Sources */,
 				BA02A68B2BC8B6DE0055F4BB /* TodayCardViewController.swift in Sources */,
@@ -649,6 +659,7 @@
 				BAEE286B2BBF6AFC00EFB923 /* AppDetailDescTableViewCell.swift in Sources */,
 				BAA487FB2BB7C60300AD7AEC /* TodayCollectionViewSection.swift in Sources */,
 				BA0B9A9C2BCAAA4A00AB6F32 /* CategoryAppViewController.swift in Sources */,
+				BA03EAA92BCCF05F007BE011 /* ItunesApp+String.swift in Sources */,
 				BAA4880A2BB81BC200AD7AEC /* JsonMapper.swift in Sources */,
 				BAB14F252BBE508900B63EC8 /* UIWindow.swift in Sources */,
 				BA2745A62BBF8767002C3D8A /* TransitionAnimatonType.swift in Sources */,
@@ -696,6 +707,7 @@
 				BA2745A22BBF7FB6002C3D8A /* AppSummary.swift in Sources */,
 				BA02A68F2BC8B8F90055F4BB /* TodayCardTransition.swift in Sources */,
 				BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */,
+				BA03EAA52BCCEB01007BE011 /* SearchResultTableViewCell.swift in Sources */,
 				BA26F96D2BC92C0B007FC541 /* TodayCardCoordinator.swift in Sources */,
 				BAA487C32BB79BE800AD7AEC /* SceneDelegate.swift in Sources */,
 				BAB14F302BBE6A3700B63EC8 /* AppDetailHeadImageTableViewCell.swift in Sources */,

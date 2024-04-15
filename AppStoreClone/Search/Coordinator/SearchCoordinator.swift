@@ -20,7 +20,7 @@ final class SearchCoordinator: Coordinator {
     
     func start() {
         let vc = SearchViewController()
-        let vm = SearchViewModel(coordinator: self)
+        let vm = SearchViewModel(coordinator: self, service: ItunesServiceImpl())
         vc.vm = vm
         navigationController.viewControllers = [vc]
     }

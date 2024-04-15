@@ -45,7 +45,7 @@ final class ItunesAppDetailViewModel: Coordinating {
             AppDetailTableViewCellType.headImage(urlString: app.artworkUrl512),
             AppDetailTableViewCellType.launchable(iconUrlString: app.artworkUrl512, title: app.trackName, subtitle: app.artistName, trackId: app.trackID),
             AppDetailTableViewCellType.summary(summaries: [
-                AppSummaryString(title: "\(app.userRatingCount)개의 평가", subtitle: "\(ratingStar(rating: app.averageUserRatingForCurrentVersion))", value: String(format: "%0.1f", app.averageUserRatingForCurrentVersion)),
+                AppSummaryString(title: "\(app.userRatingCount)개의 평가", subtitle: "\(app.averageRatingStar())", value: String(format: "%0.1f", app.averageUserRatingForCurrentVersion)),
                 AppSummaryString(title: "연령", subtitle: "세", value: "\(app.contentAdvisoryRating)"),
                 AppSummaryImage(title: "개발자", subtitle: "\(app.artistName)", value: Symbols.personCropSquare!),
                 AppSummaryString(title: "언어", subtitle: "\(app.languageCodesISO2A.count)개 언어", value: "\(app.languageCodesISO2A.first!)")
@@ -86,31 +86,6 @@ extension ItunesAppDetailViewModel {
         static let screenshotsHorizontal: CGFloat = 300
         static let infoList: CGFloat = 300
     }
-    
-    private func ratingStar(rating: Double) -> String {
-        let intValue = Int(rating)
-        
-        if intValue > 5 {
-            return "★★★★★"
-        }
-        
-        if intValue < 0 {
-            return "☆☆☆☆☆"
-        }
-        
-        var stars = ""
-        
-        for star in 1...5 {
-            if star < intValue {
-                stars += "★"
-            } else {
-                stars += "☆"
-            }
-        }
-        
-        return stars
-    }
-
 }
 
 extension ItunesAppDetailViewModel {
