@@ -58,6 +58,8 @@ class ItunesAppItemListView: UIView {
         
         appIconImageView.layer.cornerRadius = 12
         appIconImageView.clipsToBounds = true
+        appIconImageView.layer.borderWidth = 0.5
+        appIconImageView.layer.borderColor = UIColor.lightGray.cgColor
         
         openButton.layer.cornerRadius = 17
         openButton.clipsToBounds = true
