@@ -12,6 +12,9 @@
 		BA02A68B2BC8B6DE0055F4BB /* TodayCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A68A2BC8B6DE0055F4BB /* TodayCardViewController.swift */; };
 		BA02A68D2BC8B7CC0055F4BB /* TodayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A68C2BC8B7CC0055F4BB /* TodayCardViewModel.swift */; };
 		BA02A68F2BC8B8F90055F4BB /* TodayCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A68E2BC8B8F90055F4BB /* TodayCardTransition.swift */; };
+		BA03EA9B2BCCABFF007BE011 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */; };
+		BA03EA9E2BCCAC17007BE011 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */; };
+		BA03EAA12BCCADAE007BE011 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */; };
 		BA0B9A9C2BCAAA4A00AB6F32 /* CategoryAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9A9B2BCAAA4A00AB6F32 /* CategoryAppViewController.swift */; };
 		BA0B9A9F2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9A9E2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift */; };
 		BA0B9AA22BCAAACE00AB6F32 /* CategoryAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9AA12BCAAACE00AB6F32 /* CategoryAppViewModel.swift */; };
@@ -85,6 +88,9 @@
 		BA02A68A2BC8B6DE0055F4BB /* TodayCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardViewController.swift; sourceTree = "<group>"; };
 		BA02A68C2BC8B7CC0055F4BB /* TodayCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardViewModel.swift; sourceTree = "<group>"; };
 		BA02A68E2BC8B8F90055F4BB /* TodayCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardTransition.swift; sourceTree = "<group>"; };
+		BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		BA0B9A9B2BCAAA4A00AB6F32 /* CategoryAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppViewController.swift; sourceTree = "<group>"; };
 		BA0B9A9E2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppCoordinator.swift; sourceTree = "<group>"; };
 		BA0B9AA12BCAAACE00AB6F32 /* CategoryAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +187,40 @@
 				D3F7048E999FFF68394C3D2D /* Pods-AppStoreClone.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		BA03EA982BCCABEA007BE011 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BA03EA9F2BCCADA4007BE011 /* ViewModel */,
+				BA03EA9C2BCCAC0E007BE011 /* Coordinator */,
+				BA03EA992BCCABEE007BE011 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BA03EA992BCCABEE007BE011 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA03EA9C2BCCAC0E007BE011 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BA03EA9F2BCCADA4007BE011 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BA0B9A992BCAAA3800AB6F32 /* CategoryApp */ = {
@@ -286,6 +326,7 @@
 		BAA487BF2BB79BE800AD7AEC /* AppStoreClone */ = {
 			isa = PBXGroup;
 			children = (
+				BA03EA982BCCABEA007BE011 /* Search */,
 				BA0B9A992BCAAA3800AB6F32 /* CategoryApp */,
 				BAB14F282BBE624A00B63EC8 /* AppDetail */,
 				BAA487F52BB7BA4E00AD7AEC /* Itunes */,
@@ -612,7 +653,9 @@
 				BAB14F252BBE508900B63EC8 /* UIWindow.swift in Sources */,
 				BA2745A62BBF8767002C3D8A /* TransitionAnimatonType.swift in Sources */,
 				BAA487E52BB7A75200AD7AEC /* Symbols.swift in Sources */,
+				BA03EA9B2BCCABFF007BE011 /* SearchViewController.swift in Sources */,
 				BAA488202BB9429F00AD7AEC /* TodayHeaderCollectionReusableView.swift in Sources */,
+				BA03EAA12BCCADAE007BE011 /* SearchViewModel.swift in Sources */,
 				BAA487F92BB7BACD00AD7AEC /* ItunesResponse.swift in Sources */,
 				BA0B9AA22BCAAACE00AB6F32 /* CategoryAppViewModel.swift in Sources */,
 				BAA487D72BB7A30F00AD7AEC /* AppCoordinator.swift in Sources */,
@@ -621,6 +664,7 @@
 				BA2442902BBD48E000413B95 /* ItunesAppSummartItemImageView.swift in Sources */,
 				BAA487DC2BB7A63200AD7AEC /* TodayViewController.swift in Sources */,
 				BA0B9A9F2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift in Sources */,
+				BA03EA9E2BCCAC17007BE011 /* SearchCoordinator.swift in Sources */,
 				BA24428A2BBD224700413B95 /* ItunesAppSummaryItemView.swift in Sources */,
 				BA7A3EEF2BBAE18100AD26DA /* ItunesAppItemView.swift in Sources */,
 				BA0B9AB32BCB94AD00AB6F32 /* GradientHeaderCollectionReusableView.swift in Sources */,
