@@ -65,6 +65,11 @@ final class SearchViewModel: Coordinating {
             sectionModels: sectionModels
         )
     }
+        
+    func openDetail(with app: ItunesApp) {
+        guard let coordinator = coordinator as? SearchCoordinator else { return }
+        coordinator.navigateToDetail(app: app)
+    }
 }
 
 private extension SearchViewModel {

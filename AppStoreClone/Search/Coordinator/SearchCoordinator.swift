@@ -24,4 +24,11 @@ final class SearchCoordinator: Coordinator {
         vc.vm = vm
         navigationController.viewControllers = [vc]
     }
+    
+    func navigateToDetail(app: ItunesApp) {
+        let coordinator = ItunesAppDetailCoordinator(navigationController: navigationController, app: app)
+        coordinator.parent = self
+        children.append(coordinator)
+        coordinator.start()
+    }
 }

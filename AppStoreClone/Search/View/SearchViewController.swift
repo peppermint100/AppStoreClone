@@ -89,6 +89,8 @@ final class SearchViewController: UIViewController {
                 self?.searchVC.rx.isActive.onNext(true)
                 self?.searchVC.searchBar.rx.text.onNext(term)
                 self?.searchTrigger.onNext(term)
+            case .list(let app):
+                self?.vm.openDetail(with: app)
             default:
                 return
             }
