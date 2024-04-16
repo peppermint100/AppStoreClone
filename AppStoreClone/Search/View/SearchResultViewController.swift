@@ -14,7 +14,7 @@ class SearchResultViewController: UIViewController {
     var apps = PublishSubject<[ItunesApp]>()
     private let disposeBag = DisposeBag()
     
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tv = UITableView()
         tv.register(SearchResultTableViewCell.self, forCellReuseIdentifier: SearchResultTableViewCell.identifier)
         return tv
@@ -40,7 +40,7 @@ class SearchResultViewController: UIViewController {
     }
     
     private func bindView() {
-        apps.bind(to: tableView.rx.items(cellIdentifier: SearchResultTableViewCell.identifier, cellType: SearchResultTableViewCell.self)) {
+        apps.bind(to: tableView.rx.items(cellIdentifier: SearchResultTableViewCell.identifier, cellType: SearchResultTableViewCell.self)) { [weak self]
             _, app, cell in
             cell.configure(with: app)
         }

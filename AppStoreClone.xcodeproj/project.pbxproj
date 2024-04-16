@@ -18,6 +18,10 @@
 		BA03EAA32BCCB4F5007BE011 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA22BCCB4F5007BE011 /* SearchResultViewController.swift */; };
 		BA03EAA52BCCEB01007BE011 /* SearchResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA42BCCEB01007BE011 /* SearchResultTableViewCell.swift */; };
 		BA03EAA92BCCF05F007BE011 /* ItunesApp+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA82BCCF05F007BE011 /* ItunesApp+String.swift */; };
+		BA03EAAC2BCCFED9007BE011 /* SearchCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAAB2BCCFED9007BE011 /* SearchCollectionViewSection.swift */; };
+		BA03EAAE2BCD0D2A007BE011 /* SearchTermCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAAD2BCD0D2A007BE011 /* SearchTermCollectionViewCell.swift */; };
+		BA03EAB02BCD14FD007BE011 /* SearchHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAAF2BCD14FD007BE011 /* SearchHeaderCollectionReusableView.swift */; };
+		BA03EAB22BCD199E007BE011 /* SearchRecommendedAppCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAB12BCD199E007BE011 /* SearchRecommendedAppCollectionViewCell.swift */; };
 		BA0B9A9C2BCAAA4A00AB6F32 /* CategoryAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9A9B2BCAAA4A00AB6F32 /* CategoryAppViewController.swift */; };
 		BA0B9A9F2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9A9E2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift */; };
 		BA0B9AA22BCAAACE00AB6F32 /* CategoryAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0B9AA12BCAAACE00AB6F32 /* CategoryAppViewModel.swift */; };
@@ -97,6 +101,10 @@
 		BA03EAA22BCCB4F5007BE011 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		BA03EAA42BCCEB01007BE011 /* SearchResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewCell.swift; sourceTree = "<group>"; };
 		BA03EAA82BCCF05F007BE011 /* ItunesApp+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItunesApp+String.swift"; sourceTree = "<group>"; };
+		BA03EAAB2BCCFED9007BE011 /* SearchCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewSection.swift; sourceTree = "<group>"; };
+		BA03EAAD2BCD0D2A007BE011 /* SearchTermCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTermCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA03EAAF2BCD14FD007BE011 /* SearchHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		BA03EAB12BCD199E007BE011 /* SearchRecommendedAppCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecommendedAppCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA0B9A9B2BCAAA4A00AB6F32 /* CategoryAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppViewController.swift; sourceTree = "<group>"; };
 		BA0B9A9E2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppCoordinator.swift; sourceTree = "<group>"; };
 		BA0B9AA12BCAAACE00AB6F32 /* CategoryAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAppViewModel.swift; sourceTree = "<group>"; };
@@ -198,6 +206,7 @@
 		BA03EA982BCCABEA007BE011 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				BA03EAAA2BCCFECF007BE011 /* Model */,
 				BA03EA9F2BCCADA4007BE011 /* ViewModel */,
 				BA03EA9C2BCCAC0E007BE011 /* Coordinator */,
 				BA03EA992BCCABEE007BE011 /* View */,
@@ -211,6 +220,9 @@
 				BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */,
 				BA03EAA22BCCB4F5007BE011 /* SearchResultViewController.swift */,
 				BA03EAA42BCCEB01007BE011 /* SearchResultTableViewCell.swift */,
+				BA03EAAD2BCD0D2A007BE011 /* SearchTermCollectionViewCell.swift */,
+				BA03EAAF2BCD14FD007BE011 /* SearchHeaderCollectionReusableView.swift */,
+				BA03EAB12BCD199E007BE011 /* SearchRecommendedAppCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -229,6 +241,14 @@
 				BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA03EAAA2BCCFECF007BE011 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA03EAAB2BCCFED9007BE011 /* SearchCollectionViewSection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BA0B9A992BCAAA3800AB6F32 /* CategoryApp */ = {
@@ -658,6 +678,7 @@
 				BAB14F272BBE52E800B63EC8 /* UILabel.swift in Sources */,
 				BAEE286B2BBF6AFC00EFB923 /* AppDetailDescTableViewCell.swift in Sources */,
 				BAA487FB2BB7C60300AD7AEC /* TodayCollectionViewSection.swift in Sources */,
+				BA03EAAE2BCD0D2A007BE011 /* SearchTermCollectionViewCell.swift in Sources */,
 				BA0B9A9C2BCAAA4A00AB6F32 /* CategoryAppViewController.swift in Sources */,
 				BA03EAA92BCCF05F007BE011 /* ItunesApp+String.swift in Sources */,
 				BAA4880A2BB81BC200AD7AEC /* JsonMapper.swift in Sources */,
@@ -675,6 +696,7 @@
 				BA2442902BBD48E000413B95 /* ItunesAppSummartItemImageView.swift in Sources */,
 				BAA487DC2BB7A63200AD7AEC /* TodayViewController.swift in Sources */,
 				BA0B9A9F2BCAAAA800AB6F32 /* CategoryAppCoordinator.swift in Sources */,
+				BA03EAB22BCD199E007BE011 /* SearchRecommendedAppCollectionViewCell.swift in Sources */,
 				BA03EA9E2BCCAC17007BE011 /* SearchCoordinator.swift in Sources */,
 				BA24428A2BBD224700413B95 /* ItunesAppSummaryItemView.swift in Sources */,
 				BA7A3EEF2BBAE18100AD26DA /* ItunesAppItemView.swift in Sources */,
@@ -700,12 +722,14 @@
 				BA2745A02BBF7F9C002C3D8A /* ScreenshotDirection.swift in Sources */,
 				BA2442862BBD1C9400413B95 /* ItunesAppDetailCoordinator.swift in Sources */,
 				BA7A3EED2BBAE14600AD26DA /* ItunesApp.swift in Sources */,
+				BA03EAAC2BCCFED9007BE011 /* SearchCollectionViewSection.swift in Sources */,
 				BAB14F342BBE91C200B63EC8 /* AppDetailSummaryTableViewCell.swift in Sources */,
 				BAB14F362BBEA43D00B63EC8 /* AppDetailScreenshotsTableViewCell.swift in Sources */,
 				BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */,
 				BA0B9AAF2BCB927500AB6F32 /* CategoryAppItemGradientCollectionViewCell.swift in Sources */,
 				BA2745A22BBF7FB6002C3D8A /* AppSummary.swift in Sources */,
 				BA02A68F2BC8B8F90055F4BB /* TodayCardTransition.swift in Sources */,
+				BA03EAB02BCD14FD007BE011 /* SearchHeaderCollectionReusableView.swift in Sources */,
 				BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */,
 				BA03EAA52BCCEB01007BE011 /* SearchResultTableViewCell.swift in Sources */,
 				BA26F96D2BC92C0B007FC541 /* TodayCardCoordinator.swift in Sources */,

@@ -133,5 +133,5 @@ private extension SearchResultTableViewCell {
 
 fileprivate let appItemViewHeight: CGFloat = 100
 fileprivate let infoViewHeight: CGFloat = 30
-fileprivate let screenshotsViewHeight: CGFloat = 300
+fileprivate let screenshotsViewHeight: CGFloat = 280
 fileprivate let extraSpace: CGFloat = 50
