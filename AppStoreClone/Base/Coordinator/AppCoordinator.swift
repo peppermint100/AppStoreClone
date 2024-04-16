@@ -59,7 +59,7 @@ final class AppCoordinator: Coordinator {
         children.append(categoryAppCoordinator)
         children.append(searchCoordinator)
         
-        tabVC.viewControllers = [searchNVC, todayNVC, categoryAppNVC]
+        tabVC.viewControllers = [todayNVC, categoryAppNVC, searchNVC]
         
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
