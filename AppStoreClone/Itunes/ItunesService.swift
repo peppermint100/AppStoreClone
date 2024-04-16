@@ -35,6 +35,7 @@ enum ItunesEndpoint {
     case watch
     case note
     case map
+    case search(term: String)
 }
 
 extension ItunesEndpoint: Endpoint {
@@ -44,7 +45,7 @@ extension ItunesEndpoint: Endpoint {
     
     var method: HttpMethod {
         switch self {
-        case .game, .today, .delivery, .map, .note, .photo, .watch:
+        case .game, .today, .delivery, .map, .note, .photo, .watch, .search:
             return .GET
         }
     }
@@ -85,6 +86,11 @@ extension ItunesEndpoint: Endpoint {
             return [
                 URLQueryItem(name: "term", value: "지도"),
                 URLQueryItem(name: "limit", value: "9")
+            ]
+        case .search(let term):
+            return [
+                URLQueryItem(name: "term", value: term),
+                URLQueryItem(name: "limit", value: "10")
             ]
         }
     }

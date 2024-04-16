@@ -44,10 +44,22 @@ final class AppCoordinator: Coordinator {
         categoryAppCoordinator.parent = self
         categoryAppCoordinator.start()
         
+        let searchTabItem = UITabBarItem()
+        searchTabItem.title = "검색"
+        searchTabItem.image = Symbols.magnifyingglass
+        
+        let searchNVC = UINavigationController()
+        searchNVC.tabBarItem = searchTabItem
+        
+        let searchCoordinator = SearchCoordinator(navigationController: searchNVC)
+        searchCoordinator.parent = self
+        searchCoordinator.start()
+        
         children.append(todayCoordinator)
         children.append(categoryAppCoordinator)
+        children.append(searchCoordinator)
         
-        tabVC.viewControllers = [todayNVC, categoryAppNVC]
+        tabVC.viewControllers = [todayNVC, categoryAppNVC, searchNVC]
         
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()

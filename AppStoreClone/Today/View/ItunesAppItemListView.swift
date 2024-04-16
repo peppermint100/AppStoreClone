@@ -67,8 +67,7 @@ class ItunesAppItemListView: UIView {
         appIconImageView.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerY.equalToSuperview()
-            make.height.equalToSuperview().multipliedBy(0.8)
-            make.width.equalTo(snp.height).multipliedBy(0.8)
+            make.width.height.equalTo(iconSize)
         }
         
         labelStackView.snp.makeConstraints { make in
@@ -104,3 +103,5 @@ class ItunesAppItemListView: UIView {
         openButton.configure(trackId: app.trackID)
     }
 }
+
+fileprivate let iconSize: CGFloat = 75
