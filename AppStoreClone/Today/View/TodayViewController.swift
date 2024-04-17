@@ -76,7 +76,7 @@ final class TodayViewController: UIViewController {
             let item = self?.dataSource?.itemIdentifier(for: indexPath)
             switch item {
             case .big(let app):
-                let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBigCollectionViewCell
+                guard let cell = self?.collectionView.cellForItem(at: indexPath) as? TodayBigCollectionViewCell else { return }
                 self?.selectedBigCell = cell
                 self?.vm.didTapBigOrBannerCell(with: .big(app))
                 return
@@ -172,7 +172,9 @@ private extension TodayViewController {
             case .big(let app):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayBigCollectionViewCell.identifier, for: indexPath)
                         as? TodayBigCollectionViewCell else { return UICollectionViewCell()}
-                cell.configure(with: app)
+                let cardView = TodayCardView(cardType: .cell)
+                cardView.configure(imageUrlString: app.artworkUrl512, title: app.trackName)
+                cell.cardView = cardView
                 return cell
             case .banner(let app):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TodayBannerCollectionViewCell.identifier, for: indexPath)

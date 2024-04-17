@@ -81,7 +81,6 @@ final class SearchViewController: UIViewController {
     }
     
     private func bindView() {
-        
         collectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             let item = self?.dataSource?.itemIdentifier(for: indexPath)
             switch item {

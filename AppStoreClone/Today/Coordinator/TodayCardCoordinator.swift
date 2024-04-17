@@ -23,7 +23,6 @@ final class TodayCardCoordinator: Coordinator {
     func start() {
         let vc = TodayCardViewController()
         let vm = TodayCardViewModel(coordinator: self, app: app, item: item)
-        vc.setTransition()
         vc.vm = vm
         navigationController.present(vc, animated: true)
     }
