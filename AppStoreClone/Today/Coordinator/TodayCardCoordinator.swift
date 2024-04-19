@@ -13,6 +13,7 @@ final class TodayCardCoordinator: Coordinator {
     var navigationController: UINavigationController
     let app: ItunesApp
     let item: TodayItem
+    let transitionManager = TodayCardTransitionManager()
     
     init(navigationController: UINavigationController, app: ItunesApp, item: TodayItem) {
         self.navigationController = navigationController
@@ -23,8 +24,9 @@ final class TodayCardCoordinator: Coordinator {
     func start() {
         let vc = TodayCardViewController()
         let vm = TodayCardViewModel(coordinator: self, app: app, item: item)
-        vc.setTransition()
         vc.vm = vm
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = transitionManager
         navigationController.present(vc, animated: true)
     }
     

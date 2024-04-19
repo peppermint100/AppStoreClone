@@ -11,7 +11,6 @@
 		BA02A6892BC7E7AC0055F4BB /* ScreenshotDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A6882BC7E7AC0055F4BB /* ScreenshotDetailViewController.swift */; };
 		BA02A68B2BC8B6DE0055F4BB /* TodayCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A68A2BC8B6DE0055F4BB /* TodayCardViewController.swift */; };
 		BA02A68D2BC8B7CC0055F4BB /* TodayCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A68C2BC8B7CC0055F4BB /* TodayCardViewModel.swift */; };
-		BA02A68F2BC8B8F90055F4BB /* TodayCardTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA02A68E2BC8B8F90055F4BB /* TodayCardTransition.swift */; };
 		BA03EA9B2BCCABFF007BE011 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */; };
 		BA03EA9E2BCCAC17007BE011 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */; };
 		BA03EAA12BCCADAE007BE011 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */; };
@@ -44,6 +43,8 @@
 		BA2745A42BBF7FC7002C3D8A /* AdditionalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2745A32BBF7FC7002C3D8A /* AdditionalInfo.swift */; };
 		BA2745A62BBF8767002C3D8A /* TransitionAnimatonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2745A52BBF8767002C3D8A /* TransitionAnimatonType.swift */; };
 		BA2745A82BBFBD9F002C3D8A /* AppDetailImageContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2745A72BBFBD9F002C3D8A /* AppDetailImageContentView.swift */; };
+		BA695BDA2BCF99F800F9E40B /* TodayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA695BD92BCF99F800F9E40B /* TodayCardView.swift */; };
+		BA695BDC2BCFB15E00F9E40B /* TodayCardTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA695BDB2BCFB15E00F9E40B /* TodayCardTransitionManager.swift */; };
 		BA7A3EEB2BBAA1C300AD26DA /* ItunesAppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3EEA2BBAA1C300AD26DA /* ItunesAppDetailViewController.swift */; };
 		BA7A3EED2BBAE14600AD26DA /* ItunesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3EEC2BBAE14600AD26DA /* ItunesApp.swift */; };
 		BA7A3EEF2BBAE18100AD26DA /* ItunesAppItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3EEE2BBAE18100AD26DA /* ItunesAppItemView.swift */; };
@@ -94,7 +95,6 @@
 		BA02A6882BC7E7AC0055F4BB /* ScreenshotDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenshotDetailViewController.swift; sourceTree = "<group>"; };
 		BA02A68A2BC8B6DE0055F4BB /* TodayCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardViewController.swift; sourceTree = "<group>"; };
 		BA02A68C2BC8B7CC0055F4BB /* TodayCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardViewModel.swift; sourceTree = "<group>"; };
-		BA02A68E2BC8B8F90055F4BB /* TodayCardTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardTransition.swift; sourceTree = "<group>"; };
 		BA03EA9A2BCCABFF007BE011 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		BA03EA9D2BCCAC17007BE011 /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		BA03EAA02BCCADAE007BE011 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -127,6 +127,8 @@
 		BA2745A32BBF7FC7002C3D8A /* AdditionalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfo.swift; sourceTree = "<group>"; };
 		BA2745A52BBF8767002C3D8A /* TransitionAnimatonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionAnimatonType.swift; sourceTree = "<group>"; };
 		BA2745A72BBFBD9F002C3D8A /* AppDetailImageContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailImageContentView.swift; sourceTree = "<group>"; };
+		BA695BD92BCF99F800F9E40B /* TodayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardView.swift; sourceTree = "<group>"; };
+		BA695BDB2BCFB15E00F9E40B /* TodayCardTransitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardTransitionManager.swift; sourceTree = "<group>"; };
 		BA7A3EEA2BBAA1C300AD26DA /* ItunesAppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAppDetailViewController.swift; sourceTree = "<group>"; };
 		BA7A3EEC2BBAE14600AD26DA /* ItunesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesApp.swift; sourceTree = "<group>"; };
 		BA7A3EEE2BBAE18100AD26DA /* ItunesAppItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAppItemView.swift; sourceTree = "<group>"; };
@@ -424,6 +426,7 @@
 				BAA4880D2BB81F8F00AD7AEC /* ItunesAppItemListView.swift */,
 				BA7A3EEE2BBAE18100AD26DA /* ItunesAppItemView.swift */,
 				BA02A68A2BC8B6DE0055F4BB /* TodayCardViewController.swift */,
+				BA695BD92BCF99F800F9E40B /* TodayCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -441,7 +444,7 @@
 			isa = PBXGroup;
 			children = (
 				BAA487FA2BB7C60300AD7AEC /* TodayCollectionViewSection.swift */,
-				BA02A68E2BC8B8F90055F4BB /* TodayCardTransition.swift */,
+				BA695BDB2BCFB15E00F9E40B /* TodayCardTransitionManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				BAA487E02BB7A6AE00AD7AEC /* TodayViewModel.swift in Sources */,
 				BAB14F322BBE71F000B63EC8 /* AppDetailLaunchableTableViewCell.swift in Sources */,
 				BA0B9AB12BCB93A000AB6F32 /* BackgroundCollectionReusableView.swift in Sources */,
+				BA695BDC2BCFB15E00F9E40B /* TodayCardTransitionManager.swift in Sources */,
 				BAA488182BB9168E00AD7AEC /* TodayBannerCollectionViewCell.swift in Sources */,
 				BAEE28652BBEE85B00EFB923 /* AppDetailAdditionalInfoTableViewCell.swift in Sources */,
 				BA0B9AAB2BCB64EE00AB6F32 /* CategoryAppItemCollectionViewCell.swift in Sources */,
@@ -721,6 +725,7 @@
 				BAA488162BB8F57000AD7AEC /* View+Layer.swift in Sources */,
 				BA2745A02BBF7F9C002C3D8A /* ScreenshotDirection.swift in Sources */,
 				BA2442862BBD1C9400413B95 /* ItunesAppDetailCoordinator.swift in Sources */,
+				BA695BDA2BCF99F800F9E40B /* TodayCardView.swift in Sources */,
 				BA7A3EED2BBAE14600AD26DA /* ItunesApp.swift in Sources */,
 				BA03EAAC2BCCFED9007BE011 /* SearchCollectionViewSection.swift in Sources */,
 				BAB14F342BBE91C200B63EC8 /* AppDetailSummaryTableViewCell.swift in Sources */,
@@ -728,7 +733,6 @@
 				BAA487F22BB7B6CC00AD7AEC /* NetworkingManager.swift in Sources */,
 				BA0B9AAF2BCB927500AB6F32 /* CategoryAppItemGradientCollectionViewCell.swift in Sources */,
 				BA2745A22BBF7FB6002C3D8A /* AppSummary.swift in Sources */,
-				BA02A68F2BC8B8F90055F4BB /* TodayCardTransition.swift in Sources */,
 				BA03EAB02BCD14FD007BE011 /* SearchHeaderCollectionReusableView.swift in Sources */,
 				BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */,
 				BA03EAA52BCCEB01007BE011 /* SearchResultTableViewCell.swift in Sources */,

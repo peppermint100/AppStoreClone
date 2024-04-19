@@ -8,10 +8,16 @@
 import Foundation
 import RxSwift
 
+enum CardType {
+    case cell
+    case fullSheet
+}
+
 final class TodayCardViewModel: Coordinating {
     var coordinator: Coordinator
     var app: ItunesApp
     var item: TodayItem
+    var cardType = CardType.cell
     
     let disposeBag = DisposeBag()
     

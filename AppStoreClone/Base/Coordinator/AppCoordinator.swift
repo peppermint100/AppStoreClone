@@ -64,4 +64,5 @@ final class AppCoordinator: Coordinator {
         window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
     }
+
 }
