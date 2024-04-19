@@ -15,20 +15,26 @@ class TodayCardView: UIView {
     var title: String?
     var cardType: CardType = .cell
     
-    private lazy var imageView: UIImageView = {
+    lazy var imageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
+        if let image = image {
+            iv.image = image
+        }
         return iv
     }()
     
-    private lazy var titleLabel: UILabel = {
+    lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = Fonts.title
         label.numberOfLines = 2
+        if let title = title {
+            label.text = title
+        }
         return label
     }()
-        
+    
     override private init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -38,10 +44,12 @@ class TodayCardView: UIView {
     }
     
     func configure(imageUrlString: String, title: String) {
+        self.title = title
         let imageUrl = URL(string: imageUrlString)
         imageView.kf.setImage(with: imageUrl)
+        self.image = imageView.image
         titleLabel.text = title
-        updateLayout(for: cardType)
+        makeLayout(for: cardType)
     }
     
     func retriveImage() -> UIImage? {
@@ -50,11 +58,19 @@ class TodayCardView: UIView {
 }
 
 extension TodayCardView {
+    
     convenience init(image: UIImage, title: String, cardType: CardType) {
         self.init(frame: .zero)
         self.image = image
         self.title = title
         self.cardType = cardType
+        setupUI()
+    }
+    
+    convenience init(image: UIImage, title: String) {
+        self.init(frame: .zero)
+        self.image = image
+        self.title = title
         setupUI()
     }
     
@@ -67,10 +83,37 @@ extension TodayCardView {
     private func setupUI() {
         addSubview(imageView)
         addSubview(titleLabel)
-        updateLayout(for: cardType)
+        makeLayout(for: cardType)
     }
     
-    private func updateLayout(for cardType: CardType) {
+    func remakeLayout(for cardType: CardType) {
+        titleLabel.isHidden = true
+        
+        if cardType == .cell {
+            imageView.snp.remakeConstraints { make in
+                make.top.equalToSuperview()
+                make.leading.trailing.equalToSuperview().inset(20)
+                make.height.equalTo(TodayViewController.SizeConstant.bigCellImageHeight)
+            }
+            
+            titleLabel.snp.remakeConstraints { make in
+                make.leading.equalToSuperview().offset(20)
+                make.bottom.equalToSuperview().offset(-20)
+            }
+        } else {
+            imageView.snp.remakeConstraints { make in
+                make.top.leading.trailing.equalToSuperview()
+                make.height.equalTo(TodayCardViewModel.SizeConstant.imageViewHeight)
+            }
+            
+            titleLabel.snp.remakeConstraints { make in
+                make.leading.equalToSuperview().offset(20)
+                make.bottom.equalToSuperview().offset(-20)
+            }
+        }
+    }
+    
+    func makeLayout(for cardType: CardType) {
         if cardType == .cell {
             imageView.snp.makeConstraints { make in
                 make.top.equalToSuperview()
@@ -87,7 +130,7 @@ extension TodayCardView {
             
             imageView.snp.makeConstraints { make in
                 make.top.leading.trailing.equalToSuperview()
-                make.height.equalTo(TodayViewController.SizeConstant.bigCellImageHeight + 100)
+                make.height.equalTo(TodayCardViewModel.SizeConstant.imageViewHeight)
             }
             
             titleLabel.snp.makeConstraints { make in

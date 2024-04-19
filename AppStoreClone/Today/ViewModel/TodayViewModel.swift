@@ -41,12 +41,12 @@ final class TodayViewModel: Coordinating {
         )
     }
     
-    func didTapListCell(with app: ItunesApp) {
+    func didTapNavigationCell(with app: ItunesApp) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
         coordinator.navigateToAppDetail(with: app)
     }
     
-    func didTapBigOrBannerCell(with item: TodayItem) {
+    func didTapTransitionCell(with item: TodayItem) {
         guard let coordinator = coordinator as? TodayCoordinator else { return }
         switch item {
         case .big(let app):

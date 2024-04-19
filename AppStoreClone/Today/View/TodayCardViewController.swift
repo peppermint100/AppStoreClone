@@ -16,9 +16,12 @@ class TodayCardViewController: UIViewController {
     
     var viewsAreHidden: Bool = false {
         didSet {
+            cardView.isHidden = viewsAreHidden
             appItemView.isHidden = viewsAreHidden
             descLabel.isHidden = viewsAreHidden
             closeButton.isHidden = viewsAreHidden
+            
+            view.backgroundColor = viewsAreHidden ? .clear : .systemBackground
         }
     }
     
