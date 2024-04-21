@@ -15,9 +15,9 @@ Swift, UIKit, SnapKit, Compositional Layout, RXSwift, RxCocoa, RxDataSources
 - 앱 스토어의 투데이 탭에서 볼 수 있는 커스텀 애니메이션 구성
 
 <p float="left">
-    <img src="./images/투데이_전체.gif" width="150" />
-    <img src="./images/투데이_디스미스.gif" width="150" />
-    <img src="./images/투데이_스크롤다운.gif" width="150" />
+    <img src="./images/투데이_전체.gif" width="150" />
+    <img src="./images/투데이_디스미스.gif" width="150" />
+    <img src="./images/투데이_스크롤다운.gif" width="150" />
 </p>
 
 ### 앱 화면
@@ -25,7 +25,7 @@ Swift, UIKit, SnapKit, Compositional Layout, RXSwift, RxCocoa, RxDataSources
 - Composition Layout과 URLSession을 통한 API 통신을 RxSwift를 통해 바인딩하여 다양한 UI 레이아웃 구성
 
 <p float="left">
-    <img src="./images/앱_전체.gif" width="200" />
+    <img src="./images/앱_전체.gif" width="200" />
 </p>
 
 ### 검색 화면
