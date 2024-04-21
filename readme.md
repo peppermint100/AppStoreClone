@@ -15,9 +15,9 @@ Swift, UIKit, SnapKit, Compositional Layout, RXSwift, RxCocoa, RxDataSources
 - 앱 스토어의 투데이 탭에서 볼 수 있는 커스텀 애니메이션 구성
 
 <p float="left">
-    <img src="./images/투데이_전체.gif" width="150" />
-    <img src="./images/투데이_디스미스.gif" width="150" />
-    <img src="./images/투데이_스크롤다운.gif" width="150" />
+    <img src="./images/투데이_전체.gif" width="200" />
+    <img src="./images/투데이_디스미스.gif" width="200" />
+    <img src="./images/투데이_스크롤다운.gif" width="200" />
 </p>
 
 ### 앱 화면
@@ -53,9 +53,9 @@ Swift, UIKit, SnapKit, Compositional Layout, RXSwift, RxCocoa, RxDataSources
 - 컬렉션 뷰에서 현재 스크롤 위치를 활용한 Group Paging
 
 <p float="left">
-    <img src="./images/디테일_앱스토어이동2.gif" width="150" />
-    <img src="./images/디테일_사파리이동.gif" width="150" />
-    <img src="./images/디테일_컬렉션뷰_페이징.gif" width="150" />
+    <img src="./images/디테일_앱스토어이동2.gif" width="200" />
+    <img src="./images/디테일_사파리이동.gif" width="200" />
+    <img src="./images/디테일_컬렉션뷰_페이징.gif" width="200" />
 </p>
 
 ## **기술적 도전**
