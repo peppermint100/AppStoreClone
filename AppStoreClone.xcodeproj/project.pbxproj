@@ -48,6 +48,7 @@
 		BA7A3EEB2BBAA1C300AD26DA /* ItunesAppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3EEA2BBAA1C300AD26DA /* ItunesAppDetailViewController.swift */; };
 		BA7A3EED2BBAE14600AD26DA /* ItunesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3EEC2BBAE14600AD26DA /* ItunesApp.swift */; };
 		BA7A3EEF2BBAE18100AD26DA /* ItunesAppItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7A3EEE2BBAE18100AD26DA /* ItunesAppItemView.swift */; };
+		BAA2A7712BD4DDD90084ACE7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA2A7702BD4DDD90084ACE7 /* UIView+Extension.swift */; };
 		BAA487C12BB79BE800AD7AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487C02BB79BE800AD7AEC /* AppDelegate.swift */; };
 		BAA487C32BB79BE800AD7AEC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA487C22BB79BE800AD7AEC /* SceneDelegate.swift */; };
 		BAA487CA2BB79BEA00AD7AEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAA487C92BB79BEA00AD7AEC /* Assets.xcassets */; };
@@ -132,6 +133,7 @@
 		BA7A3EEA2BBAA1C300AD26DA /* ItunesAppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAppDetailViewController.swift; sourceTree = "<group>"; };
 		BA7A3EEC2BBAE14600AD26DA /* ItunesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesApp.swift; sourceTree = "<group>"; };
 		BA7A3EEE2BBAE18100AD26DA /* ItunesAppItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesAppItemView.swift; sourceTree = "<group>"; };
+		BAA2A7702BD4DDD90084ACE7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		BAA487BD2BB79BE800AD7AEC /* AppStoreClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAA487C02BB79BE800AD7AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAA487C22BB79BE800AD7AEC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				BAB14F242BBE508900B63EC8 /* UIWindow.swift */,
 				BAB14F262BBE52E800B63EC8 /* UILabel.swift */,
 				BA03EAA82BCCF05F007BE011 /* ItunesApp+String.swift */,
+				BAA2A7702BD4DDD90084ACE7 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				BA0B9AA22BCAAACE00AB6F32 /* CategoryAppViewModel.swift in Sources */,
 				BAA487D72BB7A30F00AD7AEC /* AppCoordinator.swift in Sources */,
 				BAA487DE2BB7A64C00AD7AEC /* TodayCoordinator.swift in Sources */,
+				BAA2A7712BD4DDD90084ACE7 /* UIView+Extension.swift in Sources */,
 				BA02A6892BC7E7AC0055F4BB /* ScreenshotDetailViewController.swift in Sources */,
 				BA2442902BBD48E000413B95 /* ItunesAppSummartItemImageView.swift in Sources */,
 				BAA487DC2BB7A63200AD7AEC /* TodayViewController.swift in Sources */,

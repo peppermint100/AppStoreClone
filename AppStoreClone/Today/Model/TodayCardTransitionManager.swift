@@ -92,6 +92,7 @@ extension TodayCardTransitionManager {
         
         animateCardView(cardView: tempCardView, containerView: containerView, yOriginToMoveTo: 0) {
             toVC.viewsAreHidden = false
+            toVC.createSnapshotOfView()
             cardView.isHidden = false
             tempCardView.removeFromSuperview()
             transitionContext.completeTransition(true)

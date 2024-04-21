@@ -32,6 +32,18 @@ class TodayCardViewController: UIViewController {
     let cardView = TodayCardView(cardType: .fullSheet)
     private let appItemView = ItunesAppItemView()
     
+    lazy var snapshotView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .white
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowOpacity = 0.2
+        imageView.layer.shadowRadius = 10
+        imageView.layer.shadowOffset = CGSize(width: -1, height: 2)
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     private let descLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -120,5 +132,49 @@ class TodayCardViewController: UIViewController {
         cardView.configure(imageUrlString: output.app.artworkUrl512, title: output.app.trackName)
         appItemView.configure(with: output.app)
         descLabel.text = output.app.description
+    }
+    
+    func createSnapshotOfView() {
+        let snapshotImage = view.createSnapshot()
+        snapshotView.image = snapshotImage
+        scrollView.addSubview(snapshotView)
+        
+        snapshotView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height)
+        
+        scrollView.delegate = self
+    }
+}
+
+extension TodayCardViewController: UIScrollViewDelegate {
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let yPositionForDismissal: CGFloat = 20.0
+        var yContentOffset = scrollView.contentOffset.y
+        
+        if scrollView.isTracking {
+            scrollView.bounces = true
+        } else {
+            scrollView.bounces = yContentOffset > 0
+        }
+        
+        if yContentOffset < 0 && scrollView.isTracking {
+            viewsAreHidden = true
+            snapshotView.isHidden = false
+            
+            let scale = (100 + yContentOffset) / 100
+            snapshotView.transform = CGAffineTransform(scaleX: scale, y: scale)
+            snapshotView.layer.cornerRadius = -yContentOffset > yPositionForDismissal ? yPositionForDismissal : -yContentOffset
+            
+            if yPositionForDismissal + yContentOffset <= 0 {
+                self.vm.dismissDetail()
+            }
+        } else {
+            viewsAreHidden = false
+            snapshotView.isHidden = true
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollView.bounces = true
     }
 }

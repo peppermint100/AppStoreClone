@@ -84,7 +84,7 @@ extension ItunesAppDetailViewModel {
         static let appSummary: CGFloat = 120
         static let screenshotsVertical: CGFloat = 600
         static let screenshotsHorizontal: CGFloat = 300
-        static let infoList: CGFloat = 300
+        static let infoList: CGFloat = 400
     }
 }
 
